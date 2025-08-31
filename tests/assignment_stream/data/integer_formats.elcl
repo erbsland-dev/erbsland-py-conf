@@ -1,0 +1,40 @@
+#
+# Erbsland Configuration Language Test File
+# Integer formats.
+#
+[decimal]
+value 1: 0
+value 2: 1
+value 3: +1
+value 4: -1
+value 5: 100'000
+value 6: 1'000'000
+value 7: -9223372036854775808  # 64-bit minimum value
+value 8:  9223372036854775807  # 64-bit maximum value
+
+[hexadecimal]
+value 1: 0x0
+value 2: 0X1
+value 3: +0x1
+value 4: -0x1
+value 5: 0x1234'aBcD
+value 6: -0x8000000000000000   # 64-bit minimum value in hexadecimal
+value 7:  0x7fffffffffffffff   # 64-bit maximum value in hexadecimal
+
+[binary]
+value 1: 0b0
+value 2: 0B1
+value 3: +0b1
+value 4: -0b1
+value 5: 0b1000'0001'1111'1010
+value 6: -0b1000000000000000000000000000000000000000000000000000000000000000   # 64-bit minimum value in binary
+value 7:  0b0111111111111111111111111111111111111111111111111111111111111111   # 64-bit maximum value in binary
+
+[byte counts]
+value 1: 5 kb
+value 2: 5 KiB
+value 3: 10 mb
+value 4: 1 gB
+value 5: 1 tb
+value 6: 1 PB
+

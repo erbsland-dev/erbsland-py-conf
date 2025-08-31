@@ -1,0 +1,20 @@
+# A realistic configuration example for ELCL
+@version: "1.0"
+
+# a small document
+--[ main ]--
+Connect = "host01.example.com"
+Server Port = 1234
+
+[ main . Client ]
+name: " example client "
+Welcome Message: """    # The welcome message
+    Hello user!
+    This is the welcome message...
+    """
+
+--*[server]*--
+host: "host02.example.com"
+--*[server]*--
+host: "host03.example.com"
+port: 0xffff

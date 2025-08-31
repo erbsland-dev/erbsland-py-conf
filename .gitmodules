@@ -1,0 +1,3 @@
+[submodule "tests/erbsland-lang-config-tests"]
+	path = tests/erbsland-lang-config-tests
+	url = https://github.com/erbsland-dev/erbsland-lang-config-tests.git

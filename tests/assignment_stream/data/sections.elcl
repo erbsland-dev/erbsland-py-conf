@@ -1,0 +1,14 @@
+#
+# Erbsland Configuration Language Test File
+# Various sections.
+#
+[main]
+[.server.filter]
+value: "text"
+-----[   .client.Filter   ]-----
+Value   =   "text"
+
+[Text."First Text"]
+value: 1
+-----[   text . "Second Text"   ]-----
+value: 2

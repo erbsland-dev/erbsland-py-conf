@@ -1,0 +1,13 @@
+@signature: "data"
+#
+# Erbsland Configuration Language Test File
+# Supported meta values and commands.
+#
+@version = "1.0"
+@features: "core multi-line time-delta"
+
+[main]
+@include: "path1"
+@include: "path2"
+
+[second]

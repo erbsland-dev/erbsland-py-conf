@@ -1,0 +1,23 @@
+# Erbsland Configuration Language Test File
+[main]
+value1 = 1
+value2 = 2
+value3 = 3
+[main.sub_text."one"]
+value = 10
+[main.sub_text."two"]
+value = 20
+[main.sub_text."three"]
+value = 30
+[sub.sub.sub."one"]
+value = 101
+[sub.sub.sub."two"]
+value = 102
+[sub.sub.sub."three"]
+value = 103
+[text."one"]
+value = 201
+[text."two"]
+value = 202
+[text."three"]
+value = 203

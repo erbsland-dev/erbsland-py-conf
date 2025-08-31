@@ -1,0 +1,52 @@
+[main]
+value_int           = 12345
+value_bool          = Yes
+value_float         = 12.345
+value_text          = "This is Text"
+value_date          = 2026-08-10
+value_time          = 17:54:12z
+value_date_time     = 2026-08-10 17:54:12z
+value_bytes         = <01 02 03 fd fe ff>
+value_time_delta    = 10 days
+value_regex         = /regex/
+value_list          = 1, 2, 3
+
+[main_with_wrong_type]
+value_int           = False
+value_bool          = "false"
+value_float         = False
+value_text          = False
+value_date          = False
+value_time          = False
+value_date_time     = False
+value_bytes         = False
+value_time_delta    = False
+value_regex         = False
+value_list          = False
+
+[value_lists]
+value_int            = 1, 2, 3, 4, 5
+value_bool           = Yes, No, Yes
+value_float          = 1.1, 2.2, 3.3
+value_text           = "This is Text 1", "This is Text 2", "This is Text 3"
+value_date           = 2026-08-10, 2026-08-11, 2026-08-12
+value_time           = 17:54:12z, 17:54:13z, 17:54:14z
+value_date_time      = 2026-08-10 17:54:12z, 2026-08-11 17:54:13z, 2026-08-12 17:54:14z
+value_bytes          = <01 02 03>, <04 05 06>, <07 08 09>
+value_time_delta     = 10 days, 20 days, 30 days
+value_regex          = /regex1/, /regex2/, /regex3/
+
+[value_lists_with_wrong_type]
+value_int            = 1, 2, 3, 4, 5, False
+value_bool           = Yes, No, Yes, 1
+value_float          = 1.1, 2.2, 3.3, 42
+value_text           = "This is Text 1", "This is Text 2", "This is Text 3", False
+value_date           = 2026-08-10, 2026-08-11, 2026-08-12, 11
+value_time           = 17:54:12z, 17:54:13z, 17:54:14z, 22
+value_date_time      = 2026-08-10 17:54:12z, 2026-08-11 17:54:13z, 2026-08-12 17:54:14z, 33
+value_bytes          = <01 02 03>, <04 05 06>, <07 08 09>, 44
+value_time_delta     = 10 days, 20 days, 30 days, 55
+value_regex          = /regex1/, /regex2/, /regex3/, 66
+
+[mixed_lists]
+int_with_bool   = 1, 2, 3, Yes

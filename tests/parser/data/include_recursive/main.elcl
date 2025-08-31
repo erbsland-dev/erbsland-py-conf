@@ -1,0 +1,3 @@
+*[block]
+value 01 = 123
+@include: "sub/**/*.elcl"

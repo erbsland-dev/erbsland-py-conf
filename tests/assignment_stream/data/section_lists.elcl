@@ -1,0 +1,18 @@
+#
+# Erbsland Configuration Language Test File
+# Section lists.
+#
+*[server]
+value: 1
+*[server]  # Another entry.
+value: 2
+----*[ server ]*-----
+value = 3
+
+*[client.config]
+value: 1
+*[client.config]*
+value: 2
+-------*[ client . config ]*
+value: 3
+

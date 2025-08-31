@@ -1,0 +1,20 @@
+#
+# Erbsland Configuration Language Test File
+# Float formats.
+#
+[float]
+value 1: 0.
+value 2: .0
+value 3: +1.0
+value 4: -1.0
+value 5: NaN
+value 6: INF
+value 7: -inf
+value 8: +InF
+value 9: 2937.28301
+value 10: 5e-12
+value 11: 0.02e+8
+value 12: 12e+10
+value 13: -12.9
+value 14: -8'283.9e-5
+value 15: 1'000'000.000'001

@@ -1,0 +1,7 @@
+#
+# Erbsland Configuration Language Test File
+# Basic Tests
+#
+[main]
+server: "host01.example.com"
+port: 123456

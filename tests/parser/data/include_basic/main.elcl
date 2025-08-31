@@ -1,0 +1,8 @@
+[main]
+value 01 = 5001
+value 02 = 5002
+
+@include: "sub_01/config_02.elcl"
+[second]
+value 03 = 6001
+@include: "sub_02/*.elcl"

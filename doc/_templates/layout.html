@@ -1,0 +1,7 @@
+{%- extends "sphinx_rtd_theme/layout.html" %}
+{%- block extrabody %}
+{% if banner %}
+<div class="banner">{{ banner }}</div>
+{% endif %}
+{{ super() }}
+{% endblock %}

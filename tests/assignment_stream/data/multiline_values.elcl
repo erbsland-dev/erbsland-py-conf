@@ -1,0 +1,100 @@
+#
+# Erbsland Configuration Language Test File
+# All multi-line formats.
+#
+[text]
+value 1: """
+    Hello World!
+    """
+value 2: """
+
+    Hello World!
+
+    """
+value 3:
+    """
+    Hello World!
+    """
+value 4:
+    """
+        Hello World!
+    """
+value 5:
+    """
+    The first line.
+    A second line.
+    Third line of text.
+    """
+
+[code]
+value 1: ```
+    Code\n
+    ```
+value 2: ```
+
+    Code\n
+
+    ```
+value 3:
+    ```
+    Code\n
+    ```
+value 4:
+    ```
+        Code\n
+    ```
+value 5:
+    ```python
+    if len(lines) == 3:
+        print(f"{lines}\n")
+    exit(0)
+    ```
+
+[regex]
+value 1: ///
+    ^\w+\.[Ee][Ll][Cc][Ll]$
+    ///
+value 2: ///
+
+    ^\w+\.[Ee][Ll][Cc][Ll]$
+
+    ///
+value 3:
+    ///
+    ^\w+\.[Ee][Ll][Cc][Ll]$
+    ///
+value 4:
+    ///
+        ^\w+\.[Ee][Ll][Cc][Ll]$
+    ///
+value 5:
+    ///
+    ^\w+
+        \.[Ee][Ll][Cc][Ll]
+    $
+    ///
+
+[bytes]
+value 1: <<<
+    01 02 03 04 e1 e2 e3 e4
+    >>>
+value 2: <<<
+
+    01 02 03 04
+    e1 e2 e3 e4
+
+    >>>
+value 3:
+    <<<
+    01 02 03 04
+    e1 e2 e3 e4
+    >>>
+value 4:
+    <<<hex
+
+    01 02 03 04
+
+    e1 e2 e3 e4
+
+    >>>
+

@@ -1,0 +1,11 @@
+#
+# Erbsland Configuration Language Test File
+# All single value types.
+#
+-----------------------------[ Text Names ]----------------------------------
+"One" = 1
+"  Two  " = 2
+"Good Morning!": "おはようございます！"
+"😆" = "😆"
+"->\u{1f606}" = "😆"
+

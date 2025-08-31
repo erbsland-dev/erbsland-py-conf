@@ -1,0 +1,23 @@
+#
+# Erbsland Configuration Language Test File
+# All single value types.
+#
+[main]
+value 1: 12345                  # Integer
+value 2: Yes                    # Boolean
+value 3: 12.345                 # Float
+value 4: "This is Text"         # Text
+value 5: `This is Code`         # Text in code format
+value 6: 2026-08-10             # Date
+value 7: 17:54:12z              # Time
+value 8: 2026-08-10 17:54:12z   # Date-Time
+value 9: <01 02 03 fd fe ff>    # Bytes
+value 10: 10 days               # Time-Delta
+value 11: /regex/               # Regular expression
+# Values in the next line.
+value 12:
+    12345
+value 13:                       # Comment
+    "This is Text"
+value 14:
+    2026-08-10                  # Comment
