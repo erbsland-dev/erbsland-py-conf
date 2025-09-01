@@ -421,8 +421,16 @@ class Value(ABC):
 
     @abstractmethod
     def __getstate__(self) -> dict[str, Any]:
-        """Return a picklable state."""
+        """Return a pickleable state."""
 
     @abstractmethod
     def __setstate__(self, state: dict[str, Any]) -> None:
         """Restore from pickled state."""
+
+    def __str__(self):
+        """Return a string representation of the value."""
+        return self.convert_to(str)
+
+    def __repr__(self):
+        """Return a string representation of the value."""
+        return self.to_test_text(TestOutput.MINIMAL_ESC | TestOutput.CONTAINER_SIZE)

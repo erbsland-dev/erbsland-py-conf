@@ -80,8 +80,9 @@ venv.bak/
 .idea/
 .vscode/
 
-# PyPI configuration file
+# PyPI related files
 .pypirc
+src/erbsland/conf/_version.py
 
 # OS
 .DS_Store
