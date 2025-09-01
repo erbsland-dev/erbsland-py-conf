@@ -12,6 +12,12 @@ All you need is a Python 3.12 or newer – there are no external dependencies, n
 - The API is stable.
 - The documentation covers the most important features.
 
+## Installation
+
+```shell
+pip install erbsland-conf
+```
+
 ## Quick Start
 
 Minimal Example:
