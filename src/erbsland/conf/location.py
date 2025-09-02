@@ -19,6 +19,9 @@ class Position:
     column: int = -1
     """The column number or ``-1`` if undefined."""
 
+    character_index: int = -1
+    """The character index or ``-1`` if undefined."""
+
     def is_undefined(self) -> bool:
         """Return ``True`` if the position is not defined."""
 
@@ -34,7 +37,15 @@ class Position:
     def with_offset(self, offset: int) -> Position:
         """Return a new :class:`Position` shifted by ``offset`` columns."""
 
-        return Position(self.line, self.column + offset)
+        if self.is_undefined():
+            return Position()
+        new_column = self.column
+        if self.column >= 0:
+            new_column += offset
+        new_character_index = self.character_index
+        if self.character_index >= 0:
+            new_character_index += offset
+        return Position(self.line, new_column, new_character_index)
 
 
 @dataclass(frozen=True, slots=True, eq=True, order=True)

@@ -2,6 +2,7 @@
 #  SPDX-License-Identifier: Apache-2.0
 
 
+from erbsland.conf.error import Error, ErrorCategory
 from erbsland.conf.impl.lexing.assignment import RE_NAME_ASSIGNMENT, RE_NAME_ASSIGMENT_ERROR_INDENTATION
 from erbsland.conf.impl.lexing.assignment import handle_name_assigment_error_indentation, handle_tokens_from_assignment
 from erbsland.conf.impl.lexing.cursor import Cursor
@@ -44,13 +45,16 @@ class Lexer:
         GeneratorRule(RE_INDENTATION, handle_unexpected_indentation),
     ]
 
-    def __init__(self, source: Source, *, digest_enabled: bool = False):
+    def __init__(self, source: Source, *, digest_enabled: bool = False, syntax_mode: bool = False):
         """
         Initialize the lexer.
 
         :param source: The open source to read tokens from. Must be opened and closed by the caller.
+        :param digest_enabled: Whether to enable digest calculation of the source.
+        :param syntax_mode: Create error tokens instead of raising exceptions. Try to continue lexing
+            after an error token is encountered.
         """
-        self._cursor = Cursor(source, digest_enabled=digest_enabled)
+        self._cursor = Cursor(source, digest_enabled=digest_enabled, syntax_mode=syntax_mode)
 
     def tokens(self) -> TokenGenerator:
         """
@@ -62,17 +66,25 @@ class Lexer:
         """
         self._cursor.initialize()
         while self._cursor.has_more_content():
-            for rule in self.CORE_RULES:
-                if match := self._cursor.match(rule.pattern):
-                    if rule.handler is not None:
-                        for token in rule.handler(self._cursor, match):
-                            if token.type == TokenType.ERROR:
-                                self._cursor.syntax_error(token.value)
-                            yield token
-                    break
-            else:
-                self._cursor.syntax_error(
-                    "Unexpected characters. Expected a section start, name assignment, or empty line"
-                )
+            try:
+                yield from self._process_line()
+            except Error as e:
+                if self._cursor.syntax_mode and e.category != ErrorCategory.IO:
+                    yield from self._cursor.error_tokens_from_error(e)
+                    if token := self._cursor.recover_at_next_line():  # Try resuming at the next line.
+                        yield token
+                else:
+                    raise
         yield Token(TokenType.END_OF_DATA)
         return None
+
+    def _process_line(self) -> TokenGenerator:
+        for rule in self.CORE_RULES:
+            assert rule.handler is not None
+            if match := self._cursor.match(rule.pattern):
+                for token in rule.handler(self._cursor, match):
+                    if token.type == TokenType.ERROR:
+                        self._cursor.syntax_error(token.value)
+                    yield token
+                return  # Stop at a match
+        self._cursor.syntax_error("Unexpected content. Expected a section start, name assignment, or empty line")

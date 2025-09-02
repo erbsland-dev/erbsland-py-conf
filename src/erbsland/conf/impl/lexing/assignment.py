@@ -64,9 +64,10 @@ def handle_tokens_from_assignment(cursor: Cursor, match: re.Match) -> TokenGener
         if name.is_meta() and name == META_NAME_SIGNATURE:
             if cursor.position.line != 1:
                 cursor.syntax_error("Signature must be defined in the first line of the document.")
-            if not cursor.digest_enabled:
-                cursor.unsupported("Signature validation is not configured.")
-            cursor.start_digest_calculation()
+            if not cursor.syntax_mode:  # Ignore in syntax mode
+                if not cursor.digest_enabled:
+                    cursor.unsupported("Signature validation is not configured.")
+                cursor.start_digest_calculation()
         yield cursor.token(TokenType.NAME, raw_text, name)
     except Error as error:
         raise error.with_source(cursor.create_location()) from error

@@ -16,8 +16,15 @@ class PositionCounter:
         As initially no line is read, the position is virtually *before* the first line.
         """
 
+        self._character_index = 0
         self._line = 0
         self._column = 1
+
+    @property
+    def character_index(self) -> int:
+        """Current character index into the source text from the start."""
+
+        return self._character_index
 
     @property
     def line(self) -> int:
@@ -34,11 +41,12 @@ class PositionCounter:
     def position(self) -> Position:
         """Return the current position as a :class:`erbsland.conf.location.Position`."""
 
-        return Position(self.line, self.column)
+        return Position(self.line, self.column, self.character_index)
 
     def advance(self, columns: int = 1) -> None:
         """Advance the column counter by ``columns``."""
 
+        self._character_index += columns
         self._column += columns
 
     def advance_line(self) -> None:

@@ -174,6 +174,12 @@ class Error(Exception):
 
         return self._name_path
 
+    @property
+    def offset(self) -> int | None:
+        """Offset of the error from the start of the given source location, if available."""
+
+        return self._offset
+
     def to_text(self, output: ErrorOutput = ErrorOutput.DEFAULT) -> str:
         """Return a readable string representation of the error."""
 

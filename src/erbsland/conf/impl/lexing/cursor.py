@@ -30,7 +30,7 @@ RE_ILLEGAL_CTRL = re.compile(r"[\x00-\x08\x0A-\x1F\x7F-\xA0]")
 class Cursor:
     """Cursor for the lexer that keeps track of the current position."""
 
-    def __init__(self, source: Source, *, digest_enabled: bool = False):
+    def __init__(self, source: Source, *, digest_enabled: bool = False, syntax_mode: bool = False):
         """Initialize the cursor with the given source."""
 
         self._source = source
@@ -40,6 +40,7 @@ class Cursor:
         if not self._source.is_open():
             raise ConfInternalError("Source must be open", source=self._source)
         self._digest_enabled = digest_enabled
+        self._syntax_mode = syntax_mode
 
     def __repr__(self):
         """Return a debug representation of the cursor."""
@@ -98,6 +99,18 @@ class Cursor:
         if not self.has_more_content():
             self.unexpected_end(or_unexpected_end)
 
+    def recover_at_next_line(self) -> Token | None:
+        """Recover from an unexpected end error by advancing to the next line."""
+
+        # If we have remaining content, create a token for it.
+        token = None
+        if self._line is not None:
+            remaining_characters_to_eol = len(self._line) - self._position_counter.column + 1
+            if remaining_characters_to_eol > 0:
+                token = self.token(TokenType.SKIPPED, self.raw_text_to_eol())
+        self._read_and_verify_line()
+        return token
+
     def match(self, regex: re.Pattern) -> re.Match | None:
         """Return a match for ``regex`` starting at the current position."""
 
@@ -124,6 +137,24 @@ class Cursor:
         """Convenience wrapper that creates an error token."""
 
         return self.token(TokenType.ERROR, raw_text, message)
+
+    def error_tokens_from_error(self, error: Error) -> list[Token]:
+        """Create a suitable error token from the given error."""
+
+        result = []
+        if error.location is None or error.location.position is None or error.location.position.is_undefined():
+            result.append(self.error_token(self.raw_text_to_eol().rstrip(), error.message))
+        elif error.offset is not None and error.offset > 0:
+            skipped_text = self.raw_text_to_eol()[: error.offset]
+            if skipped_text:
+                result.append(self.token(TokenType.SKIPPED, skipped_text))
+            error_text = self.raw_text_to_eol().rstrip()
+            if error_text:
+                result.append(self.error_token(error_text, error.message))
+        else:
+            error_text = self.raw_text_to_eol().rstrip()
+            result.append(self.error_token(error_text, error.message))
+        return result
 
     def character_error(self, message: str, **kwargs) -> NoReturn:
         """Raise a character-level error at the current location."""
@@ -175,9 +206,15 @@ class Cursor:
         except NotImplementedError:
             self.unsupported("Digest calculation is not supported by this source.")
 
+    @property
+    def syntax_mode(self) -> bool:
+        """Return ``True`` if the cursor is in syntax mode."""
+        return self._syntax_mode
+
     def _read_and_verify_line(self):
         """Read the next line and check for illegal control characters."""
 
+        # Now read the next line.
         self._line = self._source.readline()  # source checks maximum length and UTF-8 encoding
         if len(self._line) == 0:  # EOF
             return
@@ -186,10 +223,9 @@ class Cursor:
         # Scan the content for illegal control characters.
         content = self._strip_line_break(self._line)
         if m := RE_ILLEGAL_CTRL.search(content):
-            self._position_counter.advance(m.start())
             if m.group(0) == "\r":
-                self.character_error("Misplaced carriage return")
-            self.character_error("Illegal control character")
+                self.character_error("Misplaced carriage return", offset=m.start())
+            self.character_error("Illegal control character", offset=m.start())
 
     def _strip_line_break(self, line: str) -> str:
         """Remove the trailing newline characters from ``line`` and validate it."""

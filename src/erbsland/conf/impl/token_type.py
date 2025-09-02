@@ -6,10 +6,15 @@ import enum
 
 
 class TokenType(enum.StrEnum):
-    """Enumerates all lexical token categories."""
+    """
+    Lists all lexical token categories.
+
+    :important: The strings of this enum are part of the public API.
+    """
 
     END_OF_DATA = "EndOfData"  # The end of the data stream.
     ERROR = "Error"  # Marks erroneous syntax.
+    SKIPPED = "Skipped"  # Marks unchecked text, skipped to recover from errors.
     LINE_BREAK = "LineBreak"  # A line break.
     SPACING = "Spacing"  # A block of spacing.
     INDENTATION = "Indentation"  # A block with indentation.

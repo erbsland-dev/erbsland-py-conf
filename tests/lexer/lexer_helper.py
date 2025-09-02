@@ -14,13 +14,13 @@ from erbsland.conf.name import Name
 
 class LexerHelper:
 
-    def setup_generator(self, content_or_file: str | Path):
+    def setup_generator(self, content_or_file: str | Path, *, syntax_mode: bool = False):
         if isinstance(content_or_file, Path):
             self.source = FileSource(content_or_file)
         else:
             self.source = TextSource(content_or_file)
         self.source.open()
-        self.lexer = Lexer(self.source)
+        self.lexer = Lexer(self.source, syntax_mode=syntax_mode)
         self.tokenGenerator = self.lexer.tokens()
 
     def setup_for_value(self, value_content: str):

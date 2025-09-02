@@ -192,20 +192,23 @@ class TestAssignmentStreamLocations(AsHelper):
         value_pos = value.location.position
         assert value_pos == expected_value_pos
 
+    def _partial_equal(self, p1: Position, p2: Position) -> bool:
+        return p1.line == p2.line and p1.column == p2.column
+
     def test_list_matrix(self):
         self.setup_from_file("value_lists.elcl")
         assignment = self.find_assignment("main.value_7")
         self.require_as_and_value_location(assignment)
         value = assignment.value
-        assert value.location.position == Position(25, 5)
-        assert value[0].location.position == Position(25, 5)
-        assert value[1].location.position == Position(26, 5)
-        assert value[7].location.position == Position(32, 5)
-        assert value[0][0].location.position == Position(25, 10)
-        assert value[0][1].location.position == Position(25, 15)
-        assert value[0][7].location.position == Position(25, 44)
-        assert value[1][0].location.position == Position(26, 10)
-        assert value[7][7].location.position == Position(32, 44)
+        assert self._partial_equal(value.location.position, Position(25, 5))
+        assert self._partial_equal(value[0].location.position, Position(25, 5))
+        assert self._partial_equal(value[1].location.position, Position(26, 5))
+        assert self._partial_equal(value[7].location.position, Position(32, 5))
+        assert self._partial_equal(value[0][0].location.position, Position(25, 10))
+        assert self._partial_equal(value[0][1].location.position, Position(25, 15))
+        assert self._partial_equal(value[0][7].location.position, Position(25, 44))
+        assert self._partial_equal(value[1][0].location.position, Position(26, 10))
+        assert self._partial_equal(value[7][7].location.position, Position(32, 44))
 
     DATA_SECTION_MAPS = [
         ("main", "[main]"),

@@ -108,7 +108,7 @@ class AsHelper:
         line = self.content.count("\n", 0, index) + 1
         last_nl = self.content.rfind("\n", 0, index)
         column = index - last_nl if last_nl != -1 else index + 1
-        return Position(line, column)
+        return Position(line, column, index)
 
     def index_after(self, start_after: StartAfterParam) -> int:
         if start_after is None:
