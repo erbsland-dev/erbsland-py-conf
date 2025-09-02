@@ -1,4 +1,4 @@
-# Erbsland Configuration Parser for Python – Contributing Guidelines
+# Erbsland Configuration Parser for Python — Contributing Guidelines
 
 Thank you for considering a contribution to the Erbsland Configuration Parser for Python! We're grateful for your interest and appreciate your time and effort.
 
@@ -10,13 +10,13 @@ By contributing to this project, you agree to follow our [Code of Conduct](./COD
 
 We welcome your input in many forms:
 
-- **Found a bug?** Please [open an issue](https://github.com/erbsland-dev/erbsland-cpp-configuration/issues/new) to let us know.
-- **Have a feature request?** We’re happy to hear your ideas—please [open an issue](https://github.com/erbsland-dev/erbsland-cpp-configuration/issues/new).
-- **Have a question?** Feel free to [start a discussion](https://github.com/erbsland-dev/erbsland-cpp-configuration/discussions). We’re glad to help!
+- **Found a bug?** Please [open an issue](https://github.com/erbsland-dev/erbsland-py-conf/issues/new) to let us know.
+- **Have a feature request?** We’re happy to hear your ideas—please [open an issue](https://github.com/erbsland-dev/erbsland-py-conf/issues/new).
+- **Have a question?** Feel free to [start a discussion](https://github.com/erbsland-dev/erbsland-py-conf/discussions). We’re glad to help!
 
 ## Pull Requests
 
-Before submitting a pull request, please first connect with us by starting a [discussion](https://github.com/erbsland-dev/erbsland-cpp-configuration/discussions) or by [opening an issue](https://github.com/erbsland-dev/erbsland-cpp-configuration/issues/new). This helps us align efforts and keep things moving smoothly.
+Before submitting a pull request, please first connect with us by starting a [discussion](https://github.com/erbsland-dev/erbsland-py-conf/discussions) or by [opening an issue](https://github.com/erbsland-dev/erbsland-py-conf/issues/new). This helps us align efforts and keep things moving smoothly.
 
 ## About the Use of Artificial Intelligence
 
