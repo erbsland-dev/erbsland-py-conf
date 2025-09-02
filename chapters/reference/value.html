@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document and Values &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Name and Name-Path" href="name.html" />
+    <link rel="prev" title="Parser" href="parser.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parser.html">Parser</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Document and Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface">Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.Document"><code class="docutils literal notranslate"><span class="pre">Document</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.Value"><code class="docutils literal notranslate"><span class="pre">Value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.ValueType"><code class="docutils literal notranslate"><span class="pre">ValueType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.TestOutput"><code class="docutils literal notranslate"><span class="pre">TestOutput</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="name.html">Name and Name-Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error.html">Error Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="location.html">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_check.html">Access Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_resolver.html">Source Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signature.html">Signing and Validating Signatures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Document and Values</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapters/reference/value.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="document-and-values">
+<h1>Document and Values<a class="headerlink" href="#document-and-values" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="#erbsland.conf.Document" title="erbsland.conf.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code></a> and <a class="reference internal" href="#erbsland.conf.Value" title="erbsland.conf.Value"><code class="xref py py-class docutils literal notranslate"><span class="pre">Value</span></code></a> classes are used to represent the configuration data after parsing.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erbsland.conf</span> <span class="k">as</span> <span class="nn">elcl</span>
+
+<span class="k">def</span> <span class="nf">parse_configuration</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="c1"># Access required values and check the type.</span>
+    <span class="n">server_name</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;main.server.name&quot;</span><span class="p">)</span>
+    <span class="c1"># Provide a default if the value is optional.</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="s2">&quot;main.server.port&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+    <span class="c1"># Iterating over section lists naturally.</span>
+    <span class="k">for</span> <span class="n">client_value</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;client&quot;</span><span class="p">]:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">ip</span> <span class="o">=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;ip&quot;</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9000</span><span class="p">)</span>
+
+        <span class="c1"># Reading values from optional sections.</span>
+        <span class="k">if</span> <span class="n">filter_value</span> <span class="o">:=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="c1"># Requiring lists of specific types.</span>
+            <span class="n">keywords</span> <span class="o">=</span> <span class="n">filter_value</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="c1"># ...</span>
+        <span class="c1"># ...</span>
+    <span class="c1"># ...</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">parse_configuration</span><span class="p">(</span><span class="s2">&quot;quick-intro.elcl&quot;</span><span class="p">)</span>
+        <span class="c1"># ... running the application ...</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">elcl</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading the configuration.</span><span class="se">\n</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="interface">
+<h2>Interface<a class="headerlink" href="#interface" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.Document">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Document</span></span><a class="headerlink" href="#erbsland.conf.Document" title="Link to this definition"></a></dt>
+<dd><p>A hierarchical configuration document.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Document.to_flat_dict">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_flat_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#erbsland.conf.Value" title="erbsland.conf.value.Value"><span class="pre">Value</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#erbsland.conf.Document.to_flat_dict" title="Link to this definition"></a></dt>
+<dd><p>Return all values in a flat mapping keyed by their full name paths.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.Value">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Value</span></span><a class="headerlink" href="#erbsland.conf.Value" title="Link to this definition"></a></dt>
+<dd><p>Represents a single value within a configuration document.</p>
+<section id="supported-types-for-expected-type-and-value-type">
+<span id="value-type-support"></span><h3>Supported Types for <code class="docutils literal notranslate"><span class="pre">expected_type</span></code> and <code class="docutils literal notranslate"><span class="pre">value_type</span></code><a class="headerlink" href="#supported-types-for-expected-type-and-value-type" title="Link to this heading"></a></h3>
+<p>The supported native value types you can use in various interfaces are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a> or <a class="reference internal" href="data_types.html#erbsland.conf.Time" title="erbsland.conf.Time"><code class="xref py py-class docutils literal notranslate"><span class="pre">Time</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> or <a class="reference internal" href="data_types.html#erbsland.conf.DateTime" title="erbsland.conf.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">DateTime</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code></a> or <a class="reference internal" href="data_types.html#erbsland.conf.TimeDelta" title="erbsland.conf.TimeDelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeDelta</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">re.Pattern</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> – only for <a class="reference internal" href="#erbsland.conf.ValueType.VALUE_LIST" title="erbsland.conf.ValueType.VALUE_LIST"><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_LIST</span></code></a> values.</p></li>
+</ul>
+<p>The type checking for all <code class="docutils literal notranslate"><span class="pre">as_...</span></code> and <code class="docutils literal notranslate"><span class="pre">get_...</span></code> methods that have a <code class="docutils literal notranslate"><span class="pre">expected_type</span></code> is strict;
+an integer is <strong>not</strong> implicitly converted to a float or string.</p>
+<p>For relaxed type conversion, use the <a class="reference internal" href="#erbsland.conf.Value.convert_to" title="erbsland.conf.Value.convert_to"><code class="xref py py-meth docutils literal notranslate"><span class="pre">convert_to()</span></code></a> method.</p>
+</section>
+<section id="options-for-the-parameter-key">
+<span id="key-options"></span><h3>Options for the Parameter <code class="docutils literal notranslate"><span class="pre">key</span></code><a class="headerlink" href="#options-for-the-parameter-key" title="Link to this heading"></a></h3>
+<p>For providing name-paths, you have the following options:</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></dt><dd><p>You can provide a name-path in text format. This path is parsed and converted into
+a <a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.NamePath"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamePath</span></code></a> object.</p>
+</dd>
+<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>To address a value by index, you can provide an integer. This index works almost
+like using &lt;code&gt;value[index]&lt;/code&gt;, except that a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ConfValueNotFound</span></code> is thrown instead of an
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a>.</p>
+</dd>
+<dt><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.Name"><code class="xref py py-class docutils literal notranslate"><span class="pre">Name</span></code></a></dt><dd><p>Using a name is like using a name-path with a single element.</p>
+</dd>
+<dt><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.NamePath"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamePath</span></code></a></dt><dd><p>By providing a name path object, you can address any value
+in the value tree, relative to the current value.</p>
+</dd>
+</dl>
+</section>
+<section id="about-the-exceptions-raised-by-this-api">
+<span id="value-about-exceptions"></span><h3>About the Exceptions Raised by this API<a class="headerlink" href="#about-the-exceptions-raised-by-this-api" title="Link to this heading"></a></h3>
+<p>You can use a catch-all <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Error:</span></code> in your code to catch all exceptions raised by this API and
+output it as string to provide a user-friendly error message. The <code class="xref py py-class docutils literal notranslate"><span class="pre">Error</span></code> class
+is the base class for all exceptions raised by this API. The following exception are thrown by the API:</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfSyntaxError</span></code></dt><dd><p>If the string representation of a name path contains syntax errors.</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfValueNotFound</span></code></dt><dd><p>If no value exists at the location of <code class="docutils literal notranslate"><span class="pre">key</span></code> and no default value is provided.</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfTypeMismatch</span></code></dt><dd><p>If the value at the given location does not match the expected value and no default value is provided.</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></dt><dd><p>The class <code class="xref py py-class docutils literal notranslate"><span class="pre">ConfValueNotFound</span></code> is also derived from
+<code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code>, to make value lookup compatible with other frameworks.</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">Error</span></code></dt><dd><p>This is the base class for all exceptions raised by this API.</p>
+</dd>
+</dl>
+</section>
+<section id="native-values-for-value-types">
+<span id="value-type-mapping"></span><h3>Native Values for Value Types<a class="headerlink" href="#native-values-for-value-types" title="Link to this heading"></a></h3>
+<p>The following table shows the native value types for each non-section/list value type:</p>
+<dl class="simple">
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_INT</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_BOOL</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_FLOAT</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_TEXT</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_BYTES</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_DATE</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_TIME</span></code>:</dt><dd><p><a class="reference internal" href="data_types.html#erbsland.conf.Time" title="erbsland.conf.Time"><code class="xref py py-class docutils literal notranslate"><span class="pre">Time</span></code></a> (derived from <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.time</span></code></a>)</p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_DATETIME</span></code>:</dt><dd><p><a class="reference internal" href="data_types.html#erbsland.conf.DateTime" title="erbsland.conf.DateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">DateTime</span></code></a> (derived from <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>)</p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_TIMEDELTA</span></code>:</dt><dd><p><a class="reference internal" href="data_types.html#erbsland.conf.TimeDelta" title="erbsland.conf.TimeDelta"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeDelta</span></code></a></p>
+</dd>
+<dt><code class="xref py py-data docutils literal notranslate"><span class="pre">VALUE_REGEX</span></code>:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">re.Pattern</span></code></a></p>
+</dd>
+</dl>
+<p>For every other value type, the native value is always <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+Please note: Value lists are <em>not</em> stored as native lists.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.type">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#erbsland.conf.ValueType" title="erbsland.conf.value_type.ValueType"><span class="pre">ValueType</span></a></em><a class="headerlink" href="#erbsland.conf.Value.type" title="Link to this definition"></a></dt>
+<dd><p>Return the type of this value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.name">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.Value.name" title="Link to this definition"></a></dt>
+<dd><p>Return the name of this value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.name_path">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></em><a class="headerlink" href="#erbsland.conf.Value.name_path" title="Link to this definition"></a></dt>
+<dd><p>Return the full path to this value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.parent">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#erbsland.conf.Value" title="erbsland.conf.value.Value"><span class="pre">Value</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.Value.parent" title="Link to this definition"></a></dt>
+<dd><p>Get the parent of this value, or None if this is the root value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.has_parent">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#erbsland.conf.Value.has_parent" title="Link to this definition"></a></dt>
+<dd><p>Test if this value has a parent.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.is_root">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_root</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#erbsland.conf.Value.is_root" title="Link to this definition"></a></dt>
+<dd><p>Test if this is the root value (i.e. the document).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.location">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="location.html#erbsland.conf.Location" title="erbsland.conf.location.Location"><span class="pre">Location</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.Value.location" title="Link to this definition"></a></dt>
+<dd><p>Get the location of this value.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.native">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">native</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.Value.native" title="Link to this definition"></a></dt>
+<dd><p>Return the stored native data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The native values you can expect is described in <a class="reference internal" href="#value-type-mapping"><span class="std std-ref">Native Values for Value Types</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#erbsland.conf.Value" title="erbsland.conf.value.Value"><span class="pre">Value</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><span class="pre">Any</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get" title="Link to this definition"></a></dt>
+<dd><p>Return a child value by name, name path, or index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key used to access the child value. See <a class="reference internal" href="#key-options"><span class="std std-ref">Options for the Parameter key</span></a> for details.</p></li>
+<li><p><strong>default</strong> – Value to return when the child does not exist.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The child value, or <code class="docutils literal notranslate"><span class="pre">default</span></code> if none is found.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See <a class="reference internal" href="#value-about-exceptions"><span class="std std-ref">About the Exceptions Raised by this API</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.first">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">first</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#erbsland.conf.Value" title="erbsland.conf.value.Value"><span class="pre">Value</span></a></em><a class="headerlink" href="#erbsland.conf.Value.first" title="Link to this definition"></a></dt>
+<dd><p>Return the first child of this value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfValueNotFound" title="erbsland.conf.error.ConfValueNotFound"><strong>ConfValueNotFound</strong></a> – If the value has no children.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.Value.last">
+<em class="property"><span class="k"><span class="pre">abstract</span></span><span class="w"> </span><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#erbsland.conf.Value" title="erbsland.conf.value.Value"><span class="pre">Value</span></a></em><a class="headerlink" href="#erbsland.conf.Value.last" title="Link to this definition"></a></dt>
+<dd><p>Return the last child of this value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfValueNotFound" title="erbsland.conf.error.ConfValueNotFound"><strong>ConfValueNotFound</strong></a> – If the value has no children.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_type">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">as_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_type" title="Link to this definition"></a></dt>
+<dd><p>Convert the value to <code class="docutils literal notranslate"><span class="pre">value_type</span></code> if this value has the correct type.</p>
+<p>Type checking and conversion is strict; an integer is not implicitly converted to a float or string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Note<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If you use <code class="docutils literal notranslate"><span class="pre">list</span></code> as type, you will get a unchecked value list as <code class="docutils literal notranslate"><span class="pre">list[Value]</span></code>, and only
+if the value if of type <code class="docutils literal notranslate"><span class="pre">ValueType.VALUE_LIST</span></code>. Please use the method <a class="reference internal" href="#erbsland.conf.Value.as_list" title="erbsland.conf.Value.as_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_list()</span></code></a> or <cite>get_list</cite>
+if you want to get a type checked list of values.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>expected_type</strong> – The type you expect and to convert the value to. See <a class="reference internal" href="#value-type-support"><span class="std std-ref">Supported Types for expected_type and value_type</span></a> for
+details about the supported types.</p></li>
+<li><p><strong>default</strong> – The value returned if the conversion fails. If no default is provided,
+an exception is raised when the conversion fails.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The converted value, or <code class="docutils literal notranslate"><span class="pre">default</span></code> if the conversion fails and if it is provided,
+if not, an exception is raised.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>See <a class="reference internal" href="#value-about-exceptions"><span class="std std-ref">About the Exceptions Raised by this API</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_int">
+<span class="sig-name descname"><span class="pre">as_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_int" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(int,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_bool">
+<span class="sig-name descname"><span class="pre">as_bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_bool" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(bool,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_float">
+<span class="sig-name descname"><span class="pre">as_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_float" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(float,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_text">
+<span class="sig-name descname"><span class="pre">as_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_text" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(str,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_date">
+<span class="sig-name descname"><span class="pre">as_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.13)"><span class="pre">date</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.13)"><span class="pre">date</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_date" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(datetime.date,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_time">
+<span class="sig-name descname"><span class="pre">as_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><span class="pre">time</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><span class="pre">time</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_time" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(datetime.time,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_date_time">
+<span class="sig-name descname"><span class="pre">as_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_date_time" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(datetime.datetime,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_bytes">
+<span class="sig-name descname"><span class="pre">as_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_bytes" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(bytes,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_time_delta">
+<span class="sig-name descname"><span class="pre">as_time_delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_types.html#erbsland.conf.TimeDelta" title="erbsland.conf.time_delta.TimeDelta"><span class="pre">TimeDelta</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_types.html#erbsland.conf.TimeDelta" title="erbsland.conf.time_delta.TimeDelta"><span class="pre">TimeDelta</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_time_delta" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(TimeDelta,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_regex">
+<span class="sig-name descname"><span class="pre">as_regex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern" title="(in Python v3.13)"><span class="pre">Pattern</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern" title="(in Python v3.13)"><span class="pre">Pattern</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_regex" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(Pattern,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_value_list">
+<span class="sig-name descname"><span class="pre">as_value_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_value_list" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.as_type" title="erbsland.conf.Value.as_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type(list,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.as_list">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">as_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.as_list" title="Link to this definition"></a></dt>
+<dd><p>Expect and return a list with elements of the type <code class="docutils literal notranslate"><span class="pre">value_type</span></code>.</p>
+<p>This method first checks if it can build a list of elements with the expected type.
+If this is not possible, an exception is raised or, if provided, <code class="docutils literal notranslate"><span class="pre">default</span></code> is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Hint<span class="colon">:</span></dt>
+<dd class="field-odd"><p>We do not recommend using a default value for this method. If a single element in the list does
+not match the expected type, the default value will be returned, and it isn’t clear for the user
+why the default was used. The exception will always contain the exact location and name path to
+the failed entry in the list.</p>
+</dd>
+<dt class="field-even">Important<span class="colon">:</span></dt>
+<dd class="field-even"><p>This method will treat a single value as a list of one element.</p>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expected_type</strong> – The value type that is expected for all values in the returned list.
+See <a class="reference internal" href="#value-type-support"><span class="std std-ref">Supported Types for expected_type and value_type</span></a> for details.</p></li>
+<li><p><strong>default</strong> – A default value to return if no list of elements can be built. If no default is provided,
+an exception is raised.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list with values of the expected type, or if a default is provided, the given <code class="docutils literal notranslate"><span class="pre">default</span></code> value.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See <a class="reference internal" href="#value-about-exceptions"><span class="std std-ref">About the Exceptions Raised by this API</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.to_test_text">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_test_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output:</span> <span class="pre">~erbsland.conf.test_output.TestOutput</span> <span class="pre">=</span> <span class="pre">&lt;TestOutput.DEFAULT:</span> <span class="pre">0&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.to_test_text" title="Link to this definition"></a></dt>
+<dd><p>Return the canonical string representation used in conformance tests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.to_test_value_tree">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_test_value_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output:</span> <span class="pre">~erbsland.conf.test_output.TestOutput</span> <span class="pre">=</span> <span class="pre">&lt;TestOutput.DEFAULT:</span> <span class="pre">0&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.to_test_value_tree" title="Link to this definition"></a></dt>
+<dd><p>Return a graphical representation of the value tree.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_type">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_type" title="Link to this definition"></a></dt>
+<dd><p>Get a value by name, name path, or index and check if it is of the specified type.</p>
+<p>This method works like: <code class="docutils literal notranslate"><span class="pre">self[key].as_type(value_type,</span> <span class="pre">default=default)</span></code>.
+See <code class="xref py py-meth docutils literal notranslate"><span class="pre">as_type</span></code> for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key used to access the child value. See <a class="reference internal" href="#key-options"><span class="std std-ref">Options for the Parameter key</span></a> for details.</p></li>
+<li><p><strong>expected_type</strong> – The type you expect and to convert the value to. See <a class="reference internal" href="#value-type-support"><span class="std std-ref">Supported Types for expected_type and value_type</span></a> for
+details about the supported types.</p></li>
+<li><p><strong>default</strong> – The value returned if the conversion fails. If no default is provided,
+an exception is raised when the conversion fails.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The converted value, or <code class="docutils literal notranslate"><span class="pre">default</span></code> if the conversion fails and if it is provided,
+if not, an exception is raised.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See <a class="reference internal" href="#value-about-exceptions"><span class="std std-ref">About the Exceptions Raised by this API</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_int">
+<span class="sig-name descname"><span class="pre">get_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_int" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">int,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_bool">
+<span class="sig-name descname"><span class="pre">get_bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_bool" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">bool,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_float">
+<span class="sig-name descname"><span class="pre">get_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_float" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">float,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_text">
+<span class="sig-name descname"><span class="pre">get_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_text" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">str,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_date">
+<span class="sig-name descname"><span class="pre">get_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.13)"><span class="pre">date</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.13)"><span class="pre">date</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_date" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">datetime.date,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_time">
+<span class="sig-name descname"><span class="pre">get_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><span class="pre">time</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.time" title="(in Python v3.13)"><span class="pre">time</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_time" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">datetime.time,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_date_time">
+<span class="sig-name descname"><span class="pre">get_date_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_date_time" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">datetime.datetime,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_bytes">
+<span class="sig-name descname"><span class="pre">get_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_bytes" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">bytes,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_time_delta">
+<span class="sig-name descname"><span class="pre">get_time_delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="data_types.html#erbsland.conf.TimeDelta" title="erbsland.conf.time_delta.TimeDelta"><span class="pre">TimeDelta</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data_types.html#erbsland.conf.TimeDelta" title="erbsland.conf.time_delta.TimeDelta"><span class="pre">TimeDelta</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_time_delta" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">TimeDelta,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_regex">
+<span class="sig-name descname"><span class="pre">get_regex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern" title="(in Python v3.13)"><span class="pre">Pattern</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/re.html#re.Pattern" title="(in Python v3.13)"><span class="pre">Pattern</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_regex" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">Pattern,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_value_list">
+<span class="sig-name descname"><span class="pre">get_value_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_value_list" title="Link to this definition"></a></dt>
+<dd><p>Shorthand for <a class="reference internal" href="#erbsland.conf.Value.get_type" title="erbsland.conf.Value.get_type"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_type(key,</span> <span class="pre">list,</span> <span class="pre">default)</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.get_list">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.Name" title="erbsland.conf.name.Name"><span class="pre">Name</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.name_path.NamePath"><span class="pre">NamePath</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">MissingType</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">MISSING</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.Value.get_list" title="Link to this definition"></a></dt>
+<dd><p>Get and expect a list with elements of the type <code class="docutils literal notranslate"><span class="pre">value_type</span></code>.</p>
+<p>This method works like <cite>value[key].as_list(expected_type, default=default)</cite>.
+See <a class="reference internal" href="#erbsland.conf.Value.as_list" title="erbsland.conf.Value.as_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_list</span></code></a> for important details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – The key used to access the child value. See <a class="reference internal" href="#key-options"><span class="std std-ref">Options for the Parameter key</span></a> for details.</p></li>
+<li><p><strong>expected_type</strong> – The value type that is expected for all values in the returned list.
+See <a class="reference internal" href="#value-type-support"><span class="std std-ref">Supported Types for expected_type and value_type</span></a> for details.</p></li>
+<li><p><strong>default</strong> – A default value to return if no list of elements can be built. If no default is provided,
+an exception is raised.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list with values of the expected type, or if a default is provided, the given <code class="docutils literal notranslate"><span class="pre">default</span></code> value.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See <a class="reference internal" href="#value-about-exceptions"><span class="std std-ref">About the Exceptions Raised by this API</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.Value.convert_to">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.13)"><span class="pre">Type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="headerlink" href="#erbsland.conf.Value.convert_to" title="Link to this definition"></a></dt>
+<dd><p>Best effort conversion to the specified type.</p>
+<p>If the conversion fails, a default value for the type is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value_type</strong> – The type you expect and to convert the value to. See <a class="reference internal" href="#value-type-support"><span class="std std-ref">Supported Types for expected_type and value_type</span></a> for
+details about the supported types.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>You always get a value of the specified type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ValueType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.ValueType" title="Link to this definition"></a></dt>
+<dd><p>All possible types of configuration values.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.UNDEFINED">
+<span class="sig-name descname"><span class="pre">UNDEFINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Undefined'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.UNDEFINED" title="Link to this definition"></a></dt>
+<dd><p>An undefined value type.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.INTEGER">
+<span class="sig-name descname"><span class="pre">INTEGER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Integer'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.INTEGER" title="Link to this definition"></a></dt>
+<dd><p>An integer value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.BOOLEAN">
+<span class="sig-name descname"><span class="pre">BOOLEAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Boolean'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.BOOLEAN" title="Link to this definition"></a></dt>
+<dd><p>A boolean value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.FLOAT">
+<span class="sig-name descname"><span class="pre">FLOAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Float'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.FLOAT" title="Link to this definition"></a></dt>
+<dd><p>A floating-point value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.TEXT">
+<span class="sig-name descname"><span class="pre">TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Text'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.TEXT" title="Link to this definition"></a></dt>
+<dd><p>A text value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.DATE">
+<span class="sig-name descname"><span class="pre">DATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Date'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.DATE" title="Link to this definition"></a></dt>
+<dd><p>A date value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.TIME">
+<span class="sig-name descname"><span class="pre">TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Time'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.TIME" title="Link to this definition"></a></dt>
+<dd><p>A time value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.DATE_TIME">
+<span class="sig-name descname"><span class="pre">DATE_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DateTime'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.DATE_TIME" title="Link to this definition"></a></dt>
+<dd><p>A date-time value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.BYTES">
+<span class="sig-name descname"><span class="pre">BYTES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Bytes'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.BYTES" title="Link to this definition"></a></dt>
+<dd><p>A bytes value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.TIME_DELTA">
+<span class="sig-name descname"><span class="pre">TIME_DELTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TimeDelta'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.TIME_DELTA" title="Link to this definition"></a></dt>
+<dd><p>A time-delta value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.REGEX">
+<span class="sig-name descname"><span class="pre">REGEX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RegEx'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.REGEX" title="Link to this definition"></a></dt>
+<dd><p>A regular expression value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.VALUE_LIST">
+<span class="sig-name descname"><span class="pre">VALUE_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ValueList'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.VALUE_LIST" title="Link to this definition"></a></dt>
+<dd><p>A list of values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.SECTION_LIST">
+<span class="sig-name descname"><span class="pre">SECTION_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SectionList'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.SECTION_LIST" title="Link to this definition"></a></dt>
+<dd><p>A list of sections.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.INTERMEDIATE_SECTION">
+<span class="sig-name descname"><span class="pre">INTERMEDIATE_SECTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'IntermediateSection'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.INTERMEDIATE_SECTION" title="Link to this definition"></a></dt>
+<dd><p>An intermediate section.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.SECTION_WITH_NAMES">
+<span class="sig-name descname"><span class="pre">SECTION_WITH_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SectionWithNames'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.SECTION_WITH_NAMES" title="Link to this definition"></a></dt>
+<dd><p>A section containing named values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.SECTION_WITH_TEXTS">
+<span class="sig-name descname"><span class="pre">SECTION_WITH_TEXTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SectionWithTexts'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.SECTION_WITH_TEXTS" title="Link to this definition"></a></dt>
+<dd><p>A section containing text values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.DOCUMENT">
+<span class="sig-name descname"><span class="pre">DOCUMENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Document'</span></em><a class="headerlink" href="#erbsland.conf.ValueType.DOCUMENT" title="Link to this definition"></a></dt>
+<dd><p>The root document value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.is_single_value">
+<span class="sig-name descname"><span class="pre">is_single_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#erbsland.conf.ValueType.is_single_value" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this type represents a single scalar value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.is_list">
+<span class="sig-name descname"><span class="pre">is_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#erbsland.conf.ValueType.is_list" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this type represents a list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.is_map">
+<span class="sig-name descname"><span class="pre">is_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#erbsland.conf.ValueType.is_map" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this type represents a mapping.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.is_container">
+<span class="sig-name descname"><span class="pre">is_container</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#erbsland.conf.ValueType.is_container" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this type can contain other values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.ValueType.is_section">
+<span class="sig-name descname"><span class="pre">is_section</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#erbsland.conf.ValueType.is_section" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if this type represents a section or a section list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TestOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.TestOutput" title="Link to this definition"></a></dt>
+<dd><p>Format flags for displaying test output.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput.CONTAINER_SIZE">
+<span class="sig-name descname"><span class="pre">CONTAINER_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#erbsland.conf.TestOutput.CONTAINER_SIZE" title="Link to this definition"></a></dt>
+<dd><p>Display the container size.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput.POSITION">
+<span class="sig-name descname"><span class="pre">POSITION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#erbsland.conf.TestOutput.POSITION" title="Link to this definition"></a></dt>
+<dd><p>Display the position in the document.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput.SOURCE_ID">
+<span class="sig-name descname"><span class="pre">SOURCE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#erbsland.conf.TestOutput.SOURCE_ID" title="Link to this definition"></a></dt>
+<dd><p>Display the source identifier.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput.MINIMAL_ESC">
+<span class="sig-name descname"><span class="pre">MINIMAL_ESC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#erbsland.conf.TestOutput.MINIMAL_ESC" title="Link to this definition"></a></dt>
+<dd><p>Only escape special characters.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput.ALIGN_VALUES">
+<span class="sig-name descname"><span class="pre">ALIGN_VALUES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#erbsland.conf.TestOutput.ALIGN_VALUES" title="Link to this definition"></a></dt>
+<dd><p>Align the arrows and values in value tree output.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.TestOutput.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#erbsland.conf.TestOutput.DEFAULT" title="Link to this definition"></a></dt>
+<dd><p>Default format.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="parser.html" class="btn btn-neutral float-left" title="Parser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="name.html" class="btn btn-neutral float-right" title="Name and Name-Path" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

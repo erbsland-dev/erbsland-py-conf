@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erbsland Configuration Parser for Python &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="chapters/installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="chapters/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/usage/index.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Erbsland Configuration Parser for Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="erbsland-configuration-parser-for-python">
+<h1>Erbsland Configuration Parser for Python<a class="headerlink" href="#erbsland-configuration-parser-for-python" title="Link to this heading"></a></h1>
+<p>Welcome to the implementation of the <strong>Erbsland Configuration Language Parser</strong>—a modern and robust configuration parser built for Python 3.12 and beyond. This implementation is designed to be secure, minimal in dependencies, and easy to integrate into your existing projects.</p>
+<p>All you need is a Python 3.12 or newer – there are no external dependencies, no hassle.</p>
+<p class="sd-text-center"><span class="sd-d-grid"><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-success sd-fs-2 sd-font-weight-bold sd-p-3 reference internal" href="chapters/usage/index.html"><span class="doc">Read how to use the parser →</span></a></span></p>
+<section id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mt-4 sd-mb-4 sd-ml-0 sd-mr-0 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="fas fa-download sd-text-success"></span> Installation</div>
+<p class="sd-card-text">Details about installing the parser.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="chapters/installation.html"><span class="doc">Installation</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="fas fa-user sd-text-success"></span> How to Use the Parser</div>
+<p class="sd-card-text">Learn how to use the parser in your application.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="chapters/usage/index.html"><span class="doc">Usage</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="fas fa-code sd-text-success"></span> API Reference</div>
+<p class="sd-card-text">Reference material on all classes and methods of the parser’s API.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="chapters/reference/index.html"><span class="doc">API Reference</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="fas fa-book-open sd-text-success"></span> Configuration Language Documentation</div>
+<p class="sd-card-text">The formal documentation of the <em>Erbsland Configuration Language</em>.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="https://config-lang.erbsland.dev"><span>https://config-lang.erbsland.dev</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="fas fa-layer-group sd-text-success"></span> Requirements</div>
+<p class="sd-card-text">The requirements needed to use this parser.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="chapters/requirements.html"><span class="doc">Requirements</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<span class="fas fa-landmark sd-text-success"></span> License</div>
+<p class="sd-card-text">Familiarize yourself with the terms of use under the Apache 2.0 license.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="chapters/license.html"><span class="doc">License</span></a></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="quick-usage-overview">
+<h1>Quick Usage Overview<a class="headerlink" href="#quick-usage-overview" title="Link to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>erbsland-conf
+</pre></div>
+</div>
+</section>
+<section id="minimal-example">
+<h2>Minimal Example<a class="headerlink" href="#minimal-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erbsland.conf</span> <span class="k">as</span> <span class="nn">elcl</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;config.elcl&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="s2">&quot;server.port&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="a-more-realistic-example">
+<h2>A More Realistic Example<a class="headerlink" href="#a-more-realistic-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erbsland.conf</span> <span class="k">as</span> <span class="nn">elcl</span>
+
+<span class="k">def</span> <span class="nf">parse_configuration</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="c1"># Access required values and check the type.</span>
+    <span class="n">server_name</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;main.server.name&quot;</span><span class="p">)</span>
+    <span class="c1"># Provide a default if the value is optional.</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="s2">&quot;main.server.port&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+    <span class="c1"># Iterating over section lists naturally.</span>
+    <span class="k">for</span> <span class="n">client_value</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;client&quot;</span><span class="p">]:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">ip</span> <span class="o">=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;ip&quot;</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get_int</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">9000</span><span class="p">)</span>
+
+        <span class="c1"># Reading values from optional sections.</span>
+        <span class="k">if</span> <span class="n">filter_value</span> <span class="o">:=</span> <span class="n">client_value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="c1"># Requiring lists of specific types.</span>
+            <span class="n">keywords</span> <span class="o">=</span> <span class="n">filter_value</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s2">&quot;keywords&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="c1"># ...</span>
+        <span class="c1"># ...</span>
+    <span class="c1"># ...</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">parse_configuration</span><span class="p">(</span><span class="s2">&quot;quick-intro.elcl&quot;</span><span class="p">)</span>
+        <span class="c1"># ... running the application ...</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">elcl</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error reading the configuration.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">to_text</span><span class="p">(</span><span class="n">elcl</span><span class="o">.</span><span class="n">ErrorOutput</span><span class="o">.</span><span class="n">FILENAME_ONLY</span> <span class="o">|</span> <span class="n">elcl</span><span class="o">.</span><span class="n">ErrorOutput</span><span class="o">.</span><span class="n">USE_LINES</span><span class="p">))</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="contents-at-a-glance">
+<h1>Contents at a Glance<a class="headerlink" href="#contents-at-a-glance" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chapters/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/installation.html#basic-installation">Basic Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/installation.html#python-version-support">Python Version Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/installation.html#using-a-virtual-environment">Using a Virtual Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/installation.html#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/usage/index.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/usage/parsing.html">Parsing a Document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/parsing.html#using-a-parser-instance">Using a Parser Instance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/usage/accessing_values.html">Accessing the Values in the Parsed Document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/accessing_values.html#accessing-values-via-name-path">Accessing Values via Name-Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/accessing_values.html#accessing-values-via-index">Accessing Values via Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/accessing_values.html#iterating-over-value-and-section-lists">Iterating over Value and Section Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/usage/working_with_types.html">Working with Value Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/working_with_types.html#converting-a-value-with-as-methods">Converting a Value with <code class="docutils literal notranslate"><span class="pre">as_...</span></code> Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/working_with_types.html#combined-value-lookup-and-conversion-with-get-methods">Combined Value Lookup and Conversion with <code class="docutils literal notranslate"><span class="pre">get_...</span></code> Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/working_with_types.html#relaxed-conversion">Relaxed Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/working_with_types.html#manual-type-checks">Manual Type Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/usage/troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/troubleshooting.html#displaying-the-parsed-document-as-a-value-tree">Displaying the Parsed Document as a Value Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/troubleshooting.html#retrieving-all-values-as-a-flat-dictionary">Retrieving All Values as a Flat Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/usage/error_handling.html">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/error_handling.html#successful-run">Successful Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/error_handling.html#io-errors">IO Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/error_handling.html#syntax-encoding-and-character-errors">Syntax, Encoding and Character Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/error_handling.html#errors-while-interpreting-the-parsed-result">Errors while Interpreting the Parsed Result</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/usage/error_handling.html#generating-error-messages">Generating Error Messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/reference/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/parser.html">Parser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/parser.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/parser.html#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/value.html">Document and Values</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/value.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/value.html#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/name.html">Name and Name-Path</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/name.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/name.html#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/data_types.html">Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/data_types.html#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/error.html">Error Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/error.html#module-erbsland.conf.error">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/source.html">Sources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/source.html#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/location.html">Location</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/location.html#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/access_check.html">Access Check</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/access_check.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/access_check.html#module-erbsland.conf.access_check">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/source_resolver.html">Source Resolver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/source_resolver.html#module-erbsland.conf.source_resolver">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/reference/signature.html">Signing and Validating Signatures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/reference/signature.html#module-erbsland.conf.signature">Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/index.html">Contributing Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/index.html#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/index.html#how-you-can-contribute">How You Can Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/index.html#pull-requests">Pull Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/index.html#about-the-use-of-artificial-intelligence">About the Use of Artificial Intelligence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/code-of-conduct.html">Code of Conduct</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#our-commitment">Our Commitment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#our-standards">Our Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#reporting-and-enforcement">Reporting and Enforcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#enforcement-guidelines">Enforcement Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#correction">Correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#warning">Warning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#temporary-ban">Temporary Ban</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/contribute/code-of-conduct.html#permanent-ban">Permanent Ban</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/code-style.html">ErbslandDEV Python Code Style</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-style.html#code-format-with-black">Code Format with Black</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-style.html#api-documentation">API Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapters/contribute/code-style.html#docstrings">Docstrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapters/contribute/code-style.html#type-hints">Type Hints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/code-style.html#file-size-limits">File Size Limits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/contribute/write-a-unittest.html">How to Write a New Unit Test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/write-a-unittest.html#file-structure">File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/contribute/write-a-unittest.html#guidelines">Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/requirements.html">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/requirements.html#runtime-requirements">Runtime Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/requirements.html#development-requirements">Development Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/goals.html">Goals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapters/goals.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/goals.html#full-feature-coverage">Full Feature Coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/goals.html#dependency-free">Dependency-Free</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/goals.html#modern-readable-python">Modern, Readable Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapters/goals.html#robustness-over-performance">Robustness Over Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapters/license.html">License</a></li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and Tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapters/installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

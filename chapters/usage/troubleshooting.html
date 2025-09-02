@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Error Handling" href="error_handling.html" />
+    <link rel="prev" title="Working with Value Types" href="working_with_types.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parsing.html">Parsing a Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessing_values.html">Accessing the Values in the Parsed Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_types.html">Working with Value Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-the-parsed-document-as-a-value-tree">Displaying the Parsed Document as a Value Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retrieving-all-values-as-a-flat-dictionary">Retrieving All Values as a Flat Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="error_handling.html">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Usage</a></li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapters/usage/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+<p>During development, this parser provides a few <strong>diagnostic tools</strong> that can help you understand how your configuration is being parsed and interpreted.
+These tools are especially useful when you are debugging configuration issues or verifying new features.</p>
+<section id="displaying-the-parsed-document-as-a-value-tree">
+<h2>Displaying the Parsed Document as a Value Tree<a class="headerlink" href="#displaying-the-parsed-document-as-a-value-tree" title="Link to this heading"></a></h2>
+<p>Sometimes it’s useful to see the entire document as a <strong>value tree</strong>.
+You can do this for the whole document or for a specific section using the <a class="reference internal" href="../reference/value.html#erbsland.conf.Value.to_test_value_tree" title="erbsland.conf.Value.to_test_value_tree"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_test_value_tree()</span></code></a> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erbsland.conf</span> <span class="k">as</span> <span class="nn">elcl</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;configuration.elcl&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">to_test_value_tree</span><span class="p">(</span>
+        <span class="n">elcl</span><span class="o">.</span><span class="n">TestOutput</span><span class="o">.</span><span class="n">MINIMAL_ESC</span> <span class="o">|</span>
+        <span class="n">elcl</span><span class="o">.</span><span class="n">TestOutput</span><span class="o">.</span><span class="n">POSITION</span> <span class="o">|</span>
+        <span class="n">elcl</span><span class="o">.</span><span class="n">TestOutput</span><span class="o">.</span><span class="n">SOURCE_ID</span> <span class="o">|</span>
+        <span class="n">elcl</span><span class="o">.</span><span class="n">TestOutput</span><span class="o">.</span><span class="n">ALIGN_VALUES</span><span class="p">))</span>
+
+<span class="k">except</span> <span class="n">elcl</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load configuration: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this example will produce output like the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;Document&gt;               =&gt; Document()[A:1:1]
+├───main                 =&gt; SectionWithNames()[A:1:1]
+│   ├───listener         =&gt; Boolean(true)[A:2:22]
+│   ├───polling_interval =&gt; TimeDelta(1000,millisecond)[A:3:22]
+│   └───server           =&gt; SectionWithNames()[A:5:1]
+│       ├───name         =&gt; Text(&quot;host01.example.com&quot;)[A:6:22]
+│       └───port         =&gt; Integer(8080)[A:7:22]
+└───client               =&gt; SectionList()[A:9:1]
+    ├───[0]              =&gt; SectionWithNames()[A:9:1]
+    │   ├───name         =&gt; Text(&quot;client01&quot;)[A:10:22]
+    │   └───ip           =&gt; Text(&quot;192.168.1.10&quot;)[A:11:22]
+    ├───[1]              =&gt; SectionWithNames()[A:13:1]
+    │   ├───name         =&gt; Text(&quot;client02&quot;)[A:14:22]
+    │   ├───ip           =&gt; Text(&quot;192.168.1.11&quot;)[A:15:22]
+    │   ├───port         =&gt; Integer(9100)[A:16:22]
+    │   └───filter       =&gt; SectionWithNames()[A:18:1]
+    │       └───keywords =&gt; ValueList()[A:20:22]
+    │           ├───[0]  =&gt; Text(&quot;tree&quot;)[A:20:24]
+    │           ├───[1]  =&gt; Text(&quot;leaf&quot;)[A:21:24]
+    │           ├───[2]  =&gt; Text(&quot;branch&quot;)[A:22:24]
+    │           └───[3]  =&gt; Text(&quot;flower&quot;)[A:23:24]
+    └───[2]              =&gt; SectionWithNames()[A:25:1]
+        ├───name         =&gt; Text(&quot;client03&quot;)[A:26:22]
+        ├───ip           =&gt; Text(&quot;192.168.1.12&quot;)[A:27:22]
+        └───port         =&gt; Integer(9170)[A:28:22]
+A: file:(...)/configuration.elcl
+</pre></div>
+</div>
+<p>In this display:</p>
+<ul class="simple">
+<li><p>The <strong>left side</strong> shows the hierarchical tree of names and sections.</p></li>
+<li><p>The <strong>right side</strong> shows the parsed value assigned to each entry.</p></li>
+</ul>
+<p>This view is very handy for confirming that your configuration is parsed into the structure you expect.
+You can also adjust the formatting with flags from <a class="reference internal" href="../reference/value.html#erbsland.conf.TestOutput" title="erbsland.conf.TestOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">TestOutput</span></code></a> to match your debugging needs.</p>
+</section>
+<section id="retrieving-all-values-as-a-flat-dictionary">
+<h2>Retrieving All Values as a Flat Dictionary<a class="headerlink" href="#retrieving-all-values-as-a-flat-dictionary" title="Link to this heading"></a></h2>
+<p>Another way to inspect the parsed document is by converting it into a <strong>flat dictionary</strong> of key-value pairs.
+This can be done using the <a class="reference internal" href="../reference/value.html#erbsland.conf.Document.to_flat_dict" title="erbsland.conf.Document.to_flat_dict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_flat_dict()</span></code></a> method (available only on the root document).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erbsland.conf</span> <span class="k">as</span> <span class="nn">elcl</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;configuration.elcl&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">to_flat_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="n">elcl</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load configuration: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running this code produces output like the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>client: SectionList(name=client, size=3)
+client[0]: SectionWithNames(name=[0], size=2)
+client[0].ip: Text(name=ip, data=&quot;192.168.1.10&quot;)
+client[0].name: Text(name=name, data=&quot;client01&quot;)
+client[1]: SectionWithNames(name=[1], size=4)
+client[1].filter: SectionWithNames(name=filter, size=1)
+client[1].filter.keywords: ValueList(name=keywords, size=4)
+client[1].filter.keywords[0]: Text(name=[0], data=&quot;tree&quot;)
+client[1].filter.keywords[1]: Text(name=[1], data=&quot;leaf&quot;)
+client[1].filter.keywords[2]: Text(name=[2], data=&quot;branch&quot;)
+client[1].filter.keywords[3]: Text(name=[3], data=&quot;flower&quot;)
+client[1].ip: Text(name=ip, data=&quot;192.168.1.11&quot;)
+client[1].name: Text(name=name, data=&quot;client02&quot;)
+client[1].port: Integer(name=port, data=9100)
+client[2]: SectionWithNames(name=[2], size=3)
+client[2].ip: Text(name=ip, data=&quot;192.168.1.12&quot;)
+client[2].name: Text(name=name, data=&quot;client03&quot;)
+client[2].port: Integer(name=port, data=9170)
+main: SectionWithNames(name=main, size=3)
+main.listener: Boolean(name=listener, data=True)
+main.polling_interval: TimeDelta(name=polling_interval, data=1000 milliseconds)
+main.server: SectionWithNames(name=server, size=2)
+main.server.name: Text(name=name, data=&quot;host01.example.com&quot;)
+main.server.port: Integer(name=port, data=8080)
+</pre></div>
+</div>
+<p>This representation is especially useful if you want a <strong>quick overview</strong> of all resolved values without navigating the hierarchy.</p>
+<p><span class="sd-d-grid"><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-success sd-fs-5 sd-font-weight-bolder sd-my-4 reference internal" href="error_handling.html"><span class="doc">Error Handling →</span></a></span></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="working_with_types.html" class="btn btn-neutral float-left" title="Working with Value Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="error_handling.html" class="btn btn-neutral float-right" title="Error Handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+.ansi-block {
+    background-color: #0a0611;
+    color: #e5dff1;
+}
+
+.ansi-bold { font-weight: bold; }
+.ansi-dim { opacity: 0.5; }
+.ansi-italic { font-style: italic; }
+.ansi-underline { text-decoration: underline; }
+.ansi-blink { text-decoration: blink; }
+.ansi-reverse { }
+.ansi-hidden { opacity: 0; }
+.ansi-strike { text-decoration: line-through; }
+.ansi-black { color: #261d35; }
+.ansi-red { color: #d97780; }
+.ansi-green { color: #7aa860; }
+.ansi-yellow { color: #bc904f; }
+.ansi-blue { color: #6b9bd9; }
+.ansi-magenta { color: #b77ed1; }
+.ansi-cyan { color: #52a9a9; }
+.ansi-white { color: #beb1da; }
+.ansi-black.ansi-bold, .ansi-bright_black { color: #584875; }
+.ansi-red.ansi-bold, .ansi-bright_red { color: #e6949a; }
+.ansi-green.ansi-bold, .ansi-bright_green { color: #8ebf73; }
+.ansi-yellow.ansi-bold, .ansi-bright_yellow { color: #d3a563; }
+.ansi-blue.ansi-bold, .ansi-bright_blue { color: #88b1e5; }
+.ansi-magenta.ansi-bold, .ansi-bright_magenta { color: #c899de; }
+.ansi-cyan.ansi-bold, .ansi-bright_cyan { color: #63c0bf; }
+.ansi-white.ansi-bold, .ansi-bright_white { color: #f2eff8; }
+.ansi-bg_black { background-color: #261d35; }
+.ansi-bg_red { background-color: #d97780; }
+.ansi-bg_green { background-color: #7aa860; }
+.ansi-bg_yellow { background-color: #bc904f; }
+.ansi-bg_blue { background-color: #6b9bd9; }
+.ansi-bg_magenta { background-color: #b77ed1; }
+.ansi-bg_cyan { background-color: #52a9a9; }
+.ansi-bg_white { background-color: #beb1da; }
+.ansi-bg_bright_black { color: #584875; }
+.ansi-bg_bright_red { color: #e6949a; }
+.ansi-bg_bright_green { color: #8ebf73; }
+.ansi-bg_bright_yellow { color: #d3a563; }
+.ansi-bg_bright_blue { color: #88b1e5; }
+.ansi-bg_bright_magenta { color: #c899de; }
+.ansi-bg_bright_cyan { color: #63c0bf; }
+.ansi-bg_bright_white { color: #f2eff8; }

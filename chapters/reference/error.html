@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Classes &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sources" href="source.html" />
+    <link rel="prev" title="Data Types" href="data_types.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parser.html">Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="value.html">Document and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name.html">Name and Name-Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Error Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-erbsland.conf.error">Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ErrorCategory"><code class="docutils literal notranslate"><span class="pre">ErrorCategory</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ErrorOutput"><code class="docutils literal notranslate"><span class="pre">ErrorOutput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfIoError"><code class="docutils literal notranslate"><span class="pre">ConfIoError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfEncodingError"><code class="docutils literal notranslate"><span class="pre">ConfEncodingError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfUnexpectedEnd"><code class="docutils literal notranslate"><span class="pre">ConfUnexpectedEnd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfCharacterError"><code class="docutils literal notranslate"><span class="pre">ConfCharacterError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfSyntaxError"><code class="docutils literal notranslate"><span class="pre">ConfSyntaxError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfLimitExceeded"><code class="docutils literal notranslate"><span class="pre">ConfLimitExceeded</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfNameConflict"><code class="docutils literal notranslate"><span class="pre">ConfNameConflict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfIndentationError"><code class="docutils literal notranslate"><span class="pre">ConfIndentationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfUnsupportedError"><code class="docutils literal notranslate"><span class="pre">ConfUnsupportedError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfSignatureError"><code class="docutils literal notranslate"><span class="pre">ConfSignatureError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfAccessError"><code class="docutils literal notranslate"><span class="pre">ConfAccessError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfValidationError"><code class="docutils literal notranslate"><span class="pre">ConfValidationError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfInternalError"><code class="docutils literal notranslate"><span class="pre">ConfInternalError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfValueNotFound"><code class="docutils literal notranslate"><span class="pre">ConfValueNotFound</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.error.ConfTypeMismatch"><code class="docutils literal notranslate"><span class="pre">ConfTypeMismatch</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="location.html">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_check.html">Access Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_resolver.html">Source Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signature.html">Signing and Validating Signatures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Error Classes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapters/reference/error.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="error-classes">
+<h1>Error Classes<a class="headerlink" href="#error-classes" title="Link to this heading"></a></h1>
+<p>This implementation provides individual error classes for all errors defined by the <em>Erbsland Configuration Language</em>. They all share a common base class <a class="reference internal" href="#erbsland.conf.error.Error" title="erbsland.conf.error.Error"><code class="xref py py-class docutils literal notranslate"><span class="pre">Error</span></code></a>, which allows a convenient “catch-all” error handling while parsing and evaluating the configuration.</p>
+<p>The <a class="reference internal" href="#erbsland.conf.error.ConfValueNotFound" title="erbsland.conf.error.ConfValueNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfValueNotFound</span></code></a> error also subclasses <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a>, to make value lookup match the usual Python conventions.</p>
+<section id="module-erbsland.conf.error">
+<span id="interface"></span><h2>Interface<a class="headerlink" href="#module-erbsland.conf.error" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ErrorCategory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ErrorCategory" title="Link to this definition"></a></dt>
+<dd><p>The error category is used to classify errors that occur during parsing or evaluation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.IO">
+<span class="sig-name descname"><span class="pre">IO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('IO',</span> <span class="pre">1)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.IO" title="Link to this definition"></a></dt>
+<dd><p>A problem occurred while reading data from an I/O stream.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.ENCODING">
+<span class="sig-name descname"><span class="pre">ENCODING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Encoding',</span> <span class="pre">2)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.ENCODING" title="Link to this definition"></a></dt>
+<dd><p>The document contains a problem with UTF-8 encoding.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.UNEXPECTED_END">
+<span class="sig-name descname"><span class="pre">UNEXPECTED_END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('UnexpectedEnd',</span> <span class="pre">3)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.UNEXPECTED_END" title="Link to this definition"></a></dt>
+<dd><p>The document ended unexpectedly.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.CHARACTER">
+<span class="sig-name descname"><span class="pre">CHARACTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Character',</span> <span class="pre">4)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.CHARACTER" title="Link to this definition"></a></dt>
+<dd><p>The document contains a control character that is not allowed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.SYNTAX">
+<span class="sig-name descname"><span class="pre">SYNTAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Syntax',</span> <span class="pre">5)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.SYNTAX" title="Link to this definition"></a></dt>
+<dd><p>The document has a syntax error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.LIMIT_EXCEEDED">
+<span class="sig-name descname"><span class="pre">LIMIT_EXCEEDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('LimitExceeded',</span> <span class="pre">6)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.LIMIT_EXCEEDED" title="Link to this definition"></a></dt>
+<dd><p>The size of a name, text, or buffer exceeds the permitted limit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.NAME_CONFLICT">
+<span class="sig-name descname"><span class="pre">NAME_CONFLICT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('NameConflict',</span> <span class="pre">7)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.NAME_CONFLICT" title="Link to this definition"></a></dt>
+<dd><p>The same name has already been defined earlier in the document.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.INDENTATION">
+<span class="sig-name descname"><span class="pre">INDENTATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Indentation',</span> <span class="pre">8)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.INDENTATION" title="Link to this definition"></a></dt>
+<dd><p>The indentation of a continued line does not match the previous line.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.UNSUPPORTED">
+<span class="sig-name descname"><span class="pre">UNSUPPORTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Unsupported',</span> <span class="pre">9)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.UNSUPPORTED" title="Link to this definition"></a></dt>
+<dd><p>The requested feature/version is not supported by this parser.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.SIGNATURE">
+<span class="sig-name descname"><span class="pre">SIGNATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Signature',</span> <span class="pre">10)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.SIGNATURE" title="Link to this definition"></a></dt>
+<dd><p>The document’s signature was rejected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.ACCESS">
+<span class="sig-name descname"><span class="pre">ACCESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Access',</span> <span class="pre">11)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.ACCESS" title="Link to this definition"></a></dt>
+<dd><p>The document was rejected due to an access check.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.VALIDATION">
+<span class="sig-name descname"><span class="pre">VALIDATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Validation',</span> <span class="pre">12)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.VALIDATION" title="Link to this definition"></a></dt>
+<dd><p>The document did not meet one of the validation rules.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.INTERNAL">
+<span class="sig-name descname"><span class="pre">INTERNAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Internal',</span> <span class="pre">99)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.INTERNAL" title="Link to this definition"></a></dt>
+<dd><p>The parser encountered an unexpected internal error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.VALUE_NOT_FOUND">
+<span class="sig-name descname"><span class="pre">VALUE_NOT_FOUND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ValueNotFound',</span> <span class="pre">101)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.VALUE_NOT_FOUND" title="Link to this definition"></a></dt>
+<dd><p>A value does not exist.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.TYPE_MISMATCH">
+<span class="sig-name descname"><span class="pre">TYPE_MISMATCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('TypeMismatch',</span> <span class="pre">102)</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.TYPE_MISMATCH" title="Link to this definition"></a></dt>
+<dd><p>A value exists but has the wrong type for a conversion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorCategory.code">
+<span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#erbsland.conf.error.ErrorCategory.code" title="Link to this definition"></a></dt>
+<dd><p>Return the numeric code of the error category.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorOutput">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ErrorOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ErrorOutput" title="Link to this definition"></a></dt>
+<dd><p>Flags to control the output of errors.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorOutput.FILENAME_ONLY">
+<span class="sig-name descname"><span class="pre">FILENAME_ONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorOutput.FILENAME_ONLY" title="Link to this definition"></a></dt>
+<dd><p>Only display the filename, not the full path.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorOutput.USE_LINES">
+<span class="sig-name descname"><span class="pre">USE_LINES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorOutput.USE_LINES" title="Link to this definition"></a></dt>
+<dd><p>Break the error message into multiple lines.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.error.ErrorOutput.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#erbsland.conf.error.ErrorOutput.DEFAULT" title="Link to this definition"></a></dt>
+<dd><p>Default format.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.error.ErrorCategory" title="erbsland.conf.error.ErrorCategory"><span class="pre">ErrorCategory</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.Source" title="erbsland.conf.Source"><span class="pre">Source</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.SourceIdentifier"><span class="pre">SourceIdentifier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="location.html#erbsland.conf.Location" title="erbsland.conf.Location"><span class="pre">Location</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="location.html#erbsland.conf.Position" title="erbsland.conf.Position"><span class="pre">Position</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'NamePath'</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.Error" title="Link to this definition"></a></dt>
+<dd><p>Represents a problem encountered while parsing a document or accessing a value.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.category">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">category</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#erbsland.conf.error.ErrorCategory" title="erbsland.conf.error.ErrorCategory"><span class="pre">ErrorCategory</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.category" title="Link to this definition"></a></dt>
+<dd><p>Category of the error.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.code">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.code" title="Link to this definition"></a></dt>
+<dd><p>Numeric code of the error category.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.message">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.message" title="Link to this definition"></a></dt>
+<dd><p>Human-readable error message.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.location">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">location</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="location.html#erbsland.conf.Location" title="erbsland.conf.location.Location"><span class="pre">Location</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.location" title="Link to this definition"></a></dt>
+<dd><p>Location where the error occurred, if available.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.path">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.path" title="Link to this definition"></a></dt>
+<dd><p>Path associated with the error, if any.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.system_message">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">system_message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.system_message" title="Link to this definition"></a></dt>
+<dd><p>System-specific message describing the error, if any.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.name_path">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="s"><span class="pre">'NamePath'</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.name_path" title="Link to this definition"></a></dt>
+<dd><p>Name path of the value that caused the error, if available.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.offset">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><a class="headerlink" href="#erbsland.conf.error.Error.offset" title="Link to this definition"></a></dt>
+<dd><p>Offset of the error from the start of the given source location, if available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.to_text">
+<span class="sig-name descname"><span class="pre">to_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output:</span> <span class="pre">~erbsland.conf.error.ErrorOutput</span> <span class="pre">=</span> <span class="pre">&lt;ErrorOutput.DEFAULT:</span> <span class="pre">0&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#erbsland.conf.error.Error.to_text" title="Link to this definition"></a></dt>
+<dd><p>Return a readable string representation of the error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.with_source">
+<span class="sig-name descname"><span class="pre">with_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.Source" title="erbsland.conf.source.Source"><span class="pre">Source</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="location.html#erbsland.conf.Location" title="erbsland.conf.location.Location"><span class="pre">Location</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#erbsland.conf.error.Error" title="erbsland.conf.error.Error"><span class="pre">Error</span></a></span></span><a class="headerlink" href="#erbsland.conf.error.Error.with_source" title="Link to this definition"></a></dt>
+<dd><p>Return a copy of the error with <code class="docutils literal notranslate"><span class="pre">source</span></code> replaced.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.error.Error.with_name_path">
+<span class="sig-name descname"><span class="pre">with_name_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="name.html#erbsland.conf.NamePath" title="erbsland.conf.NamePath"><span class="pre">NamePath</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#erbsland.conf.error.Error" title="erbsland.conf.error.Error"><span class="pre">Error</span></a></span></span><a class="headerlink" href="#erbsland.conf.error.Error.with_name_path" title="Link to this definition"></a></dt>
+<dd><p>Return a copy of the error with <code class="docutils literal notranslate"><span class="pre">name_path</span></code> replaced.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfIoError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfIoError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfIoError" title="Link to this definition"></a></dt>
+<dd><p>Error raised when an I/O operation fails.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfEncodingError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfEncodingError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfEncodingError" title="Link to this definition"></a></dt>
+<dd><p>Error raised when UTF-8 encoding is invalid.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfUnexpectedEnd">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfUnexpectedEnd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfUnexpectedEnd" title="Link to this definition"></a></dt>
+<dd><p>Error raised when a document ends unexpectedly.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfCharacterError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfCharacterError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfCharacterError" title="Link to this definition"></a></dt>
+<dd><p>Error raised for invalid control characters.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfSyntaxError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfSyntaxError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfSyntaxError" title="Link to this definition"></a></dt>
+<dd><p>Error raised for syntax errors in the document.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfLimitExceeded">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfLimitExceeded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfLimitExceeded" title="Link to this definition"></a></dt>
+<dd><p>Error raised when a size limit is exceeded.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfNameConflict">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfNameConflict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfNameConflict" title="Link to this definition"></a></dt>
+<dd><p>Error raised on name conflicts.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfIndentationError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfIndentationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfIndentationError" title="Link to this definition"></a></dt>
+<dd><p>Error raised for inconsistent indentation in continued lines.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfUnsupportedError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfUnsupportedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfUnsupportedError" title="Link to this definition"></a></dt>
+<dd><p>Error raised for features not supported by the parser.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfSignatureError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfSignatureError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfSignatureError" title="Link to this definition"></a></dt>
+<dd><p>Error raised when a document’s signature is rejected.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfAccessError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfAccessError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfAccessError" title="Link to this definition"></a></dt>
+<dd><p>Error raised when a document fails an access check.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfValidationError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfValidationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfValidationError" title="Link to this definition"></a></dt>
+<dd><p>Error raised when the document violates validation rules.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfInternalError">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfInternalError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfInternalError" title="Link to this definition"></a></dt>
+<dd><p>Error raised when the parser encounters an unexpected internal issue.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfValueNotFound">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfValueNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfValueNotFound" title="Link to this definition"></a></dt>
+<dd><p>Error raised when a requested value is missing.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="erbsland.conf.error.ConfTypeMismatch">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConfTypeMismatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.error.ConfTypeMismatch" title="Link to this definition"></a></dt>
+<dd><p>Error raised when a value has the wrong type for conversion.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_types.html" class="btn btn-neutral float-left" title="Data Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="source.html" class="btn btn-neutral float-right" title="Sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

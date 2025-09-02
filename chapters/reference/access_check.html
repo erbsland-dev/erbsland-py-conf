@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Check &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Source Resolver" href="source_resolver.html" />
+    <link rel="prev" title="Location" href="location.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parser.html">Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="value.html">Document and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name.html">Name and Name-Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error.html">Error Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="location.html">Location</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Access Check</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-default-implementation-with-flags">Use the Default Implementation with Flags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-your-custom-access-check">Create your Custom Access Check</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-erbsland.conf.access_check">Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.access_check.AccessSources"><code class="docutils literal notranslate"><span class="pre">AccessSources</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult"><code class="docutils literal notranslate"><span class="pre">AccessCheckResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.access_check.AccessCheck"><code class="docutils literal notranslate"><span class="pre">AccessCheck</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.file_access_check.AccessFeature"><code class="docutils literal notranslate"><span class="pre">AccessFeature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.file_access_check.FileAccessCheck"><code class="docutils literal notranslate"><span class="pre">FileAccessCheck</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source_resolver.html">Source Resolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signature.html">Signing and Validating Signatures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Access Check</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapters/reference/access_check.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="access-check">
+<h1>Access Check<a class="headerlink" href="#access-check" title="Link to this heading"></a></h1>
+<p>The <a class="reference internal" href="#module-erbsland.conf.access_check" title="erbsland.conf.access_check"><code class="xref py py-mod docutils literal notranslate"><span class="pre">access_check</span></code></a> module provides the interface for implementing access checks to configuration documents.</p>
+<p>There is also a default implementation provided you find in the <a class="reference internal" href="#module-erbsland.conf.file_access_check" title="erbsland.conf.file_access_check"><code class="xref py py-mod docutils literal notranslate"><span class="pre">file_access_check</span></code></a> module. This implementation is used by default, but you can customize it by creating a own instance and passing it to the parser.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<section id="use-the-default-implementation-with-flags">
+<h3>Use the Default Implementation with Flags<a class="headerlink" href="#use-the-default-implementation-with-flags" title="Link to this heading"></a></h3>
+<p>You can customize access to configuration files by creating a own instance of <a class="reference internal" href="#erbsland.conf.file_access_check.FileAccessCheck" title="erbsland.conf.file_access_check.FileAccessCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileAccessCheck</span></code></a> and passing it to the parser.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">erbsland.conf</span> <span class="kn">import</span> <span class="n">AccessFeature</span><span class="p">,</span> <span class="n">FileAccessCheck</span><span class="p">,</span> <span class="n">Parser</span>
+
+<span class="n">flags</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">AccessFeature</span><span class="o">.</span><span class="n">SAME_DIRECTORY</span> <span class="o">|</span>
+        <span class="n">AccessFeature</span><span class="o">.</span><span class="n">SUBDIRECTORIES</span> <span class="o">|</span>
+        <span class="n">AccessFeature</span><span class="o">.</span><span class="n">LIMIT_SIZE</span> <span class="o">|</span>
+        <span class="n">AccessFeature</span><span class="o">.</span><span class="n">REQUIRE_SUFFIX</span>
+<span class="p">)</span>
+<span class="n">access_check</span> <span class="o">=</span> <span class="n">FileAccessCheck</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">Parser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">access_check</span> <span class="o">=</span> <span class="n">access_check</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;configuration.elcl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-your-custom-access-check">
+<h3>Create your Custom Access Check<a class="headerlink" href="#create-your-custom-access-check" title="Link to this heading"></a></h3>
+<p>If you need custom logic to check access to configuration files, you can create your own implementation of <a class="reference internal" href="#erbsland.conf.access_check.AccessCheck" title="erbsland.conf.access_check.AccessCheck"><code class="xref py py-class docutils literal notranslate"><span class="pre">AccessCheck</span></code></a>. Only the method <a class="reference internal" href="#erbsland.conf.access_check.AccessCheck.check" title="erbsland.conf.access_check.AccessCheck.check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check()</span></code></a> needs to be implemented.</p>
+<p>Return <a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult.GRANTED" title="erbsland.conf.access_check.AccessCheckResult.GRANTED"><code class="xref py py-data docutils literal notranslate"><span class="pre">GRANTED</span></code></a> if access is granted, <a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult.DENIED" title="erbsland.conf.access_check.AccessCheckResult.DENIED"><code class="xref py py-data docutils literal notranslate"><span class="pre">DENIED</span></code></a> otherwise. Alternatively you can raise an <a class="reference internal" href="error.html#erbsland.conf.error.ConfAccessError" title="erbsland.conf.error.ConfAccessError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfAccessError</span></code></a> if access is denied. If you raise an exception, the parser will automatically add the location of the include statement to the error message.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">erbsland.conf</span> <span class="kn">import</span> <span class="n">AccessCheck</span><span class="p">,</span> <span class="n">AccessCheckResult</span><span class="p">,</span> <span class="n">AccessSources</span>
+
+<span class="k">class</span> <span class="nc">MyAccessCheck</span><span class="p">(</span><span class="n">AccessCheck</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">access_sources</span><span class="p">:</span> <span class="n">AccessSources</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AccessCheckResult</span><span class="p">:</span>
+        <span class="c1"># ...</span>
+        <span class="k">return</span> <span class="n">AccessCheckResult</span><span class="o">.</span><span class="n">GRANTED</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-erbsland.conf.access_check">
+<span id="interface"></span><h2>Interface<a class="headerlink" href="#module-erbsland.conf.access_check" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.access_check.AccessSources">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccessSources</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.access_check.AccessSources" title="Link to this definition"></a></dt>
+<dd><p>Identifiers for the target source and its lineage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – Identifier of the source being checked.</p></li>
+<li><p><strong>parent</strong> – Identifier of the parent source, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the source has no parent.</p></li>
+<li><p><strong>root</strong> – Identifier of the root source.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.access_check.AccessCheckResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccessCheckResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.access_check.AccessCheckResult" title="Link to this definition"></a></dt>
+<dd><p>Result of an access check.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.access_check.AccessCheckResult.GRANTED">
+<span class="sig-name descname"><span class="pre">GRANTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#erbsland.conf.access_check.AccessCheckResult.GRANTED" title="Link to this definition"></a></dt>
+<dd><p>Tested source may be accessed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.access_check.AccessCheckResult.DENIED">
+<span class="sig-name descname"><span class="pre">DENIED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#erbsland.conf.access_check.AccessCheckResult.DENIED" title="Link to this definition"></a></dt>
+<dd><p>Tested source may not be accessed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.access_check.AccessCheck">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccessCheck</span></span><a class="headerlink" href="#erbsland.conf.access_check.AccessCheck" title="Link to this definition"></a></dt>
+<dd><p>Interface for checking whether a source may be accessed.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.access_check.AccessCheck.check">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.access_check.AccessSources" title="erbsland.conf.access_check.AccessSources"><span class="pre">AccessSources</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult" title="erbsland.conf.access_check.AccessCheckResult"><span class="pre">AccessCheckResult</span></a></span></span><a class="headerlink" href="#erbsland.conf.access_check.AccessCheck.check" title="Link to this definition"></a></dt>
+<dd><p>Evaluate access for the given sources.</p>
+<p>In case of an error, the check can return <a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult.DENIED" title="erbsland.conf.access_check.AccessCheckResult.DENIED"><code class="xref py py-data docutils literal notranslate"><span class="pre">DENIED</span></code></a> or
+simply raise a <a class="reference internal" href="error.html#erbsland.conf.error.ConfAccessError" title="erbsland.conf.error.ConfAccessError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfAccessError</span></code></a> exception, which is equivalent to
+<a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult.DENIED" title="erbsland.conf.access_check.AccessCheckResult.DENIED"><code class="xref py py-data docutils literal notranslate"><span class="pre">AccessCheckResult.DENIED</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>access_sources</strong> – Identifiers of the source to evaluate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the access check.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="error.html#erbsland.conf.error.Error" title="erbsland.conf.error.Error"><strong>Error</strong></a> – If the check fails due to an unexpected problem.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-erbsland.conf.file_access_check">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccessFeature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature" title="Link to this definition"></a></dt>
+<dd><p>Feature flags controlling file access restrictions.</p>
+<p>The default configuration enables
+<code class="xref py py-data docutils literal notranslate"><span class="pre">SAME_DIRECTORY</span></code>,
+<code class="xref py py-data docutils literal notranslate"><span class="pre">SUBDIRECTORIES</span></code>, and
+<code class="xref py py-data docutils literal notranslate"><span class="pre">LIMIT_SIZE</span></code>.</p>
+<ul class="simple">
+<li><p>If none of <code class="xref py py-data docutils literal notranslate"><span class="pre">SAME_DIRECTORY</span></code>,
+<code class="xref py py-data docutils literal notranslate"><span class="pre">SUBDIRECTORIES</span></code> or
+<code class="xref py py-data docutils literal notranslate"><span class="pre">ANY_DIRECTORY</span></code> is set, all file sources are rejected.</p></li>
+<li><p>If a file is included from a non-file source and
+<code class="xref py py-data docutils literal notranslate"><span class="pre">ANY_DIRECTORY</span></code> is not enabled, the source is rejected.</p></li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.SAME_DIRECTORY">
+<span class="sig-name descname"><span class="pre">SAME_DIRECTORY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.SAME_DIRECTORY" title="Link to this definition"></a></dt>
+<dd><p>Allow included sources to be in the same directory as the including document (recommended, default).
+Example: If the including document has the path <code class="docutils literal notranslate"><span class="pre">config/main.elcl</span></code>, documents such as
+<code class="docutils literal notranslate"><span class="pre">config/other.elcl</span></code> are accepted. If disabled, such documents are rejected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.SUBDIRECTORIES">
+<span class="sig-name descname"><span class="pre">SUBDIRECTORIES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.SUBDIRECTORIES" title="Link to this definition"></a></dt>
+<dd><p>Allow included sources in subdirectories of the including document (recommended, default).
+Example: If the including document is <code class="docutils literal notranslate"><span class="pre">config/main.elcl</span></code>, documents like <code class="docutils literal notranslate"><span class="pre">config/sub/other.elcl</span></code>
+are accepted. If disabled, subdirectory documents are rejected.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.ANY_DIRECTORY">
+<span class="sig-name descname"><span class="pre">ANY_DIRECTORY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.ANY_DIRECTORY" title="Link to this definition"></a></dt>
+<dd><p>Allow included sources in any directory, including unrelated paths or remote shares. <strong>Not recommended</strong>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.ONLY_FILE_SOURCES">
+<span class="sig-name descname"><span class="pre">ONLY_FILE_SOURCES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.ONLY_FILE_SOURCES" title="Link to this definition"></a></dt>
+<dd><p>When enabled, only file-based sources are accepted. Sources of other types (for example, <code class="docutils literal notranslate"><span class="pre">text</span></code>) are
+rejected. When disabled (default), non-file sources are automatically accepted, which allows chaining
+other checks.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.LIMIT_SIZE">
+<span class="sig-name descname"><span class="pre">LIMIT_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.LIMIT_SIZE" title="Link to this definition"></a></dt>
+<dd><p>Limit file size to a maximum of 100 MB (recommended, default).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.REQUIRE_SUFFIX">
+<span class="sig-name descname"><span class="pre">REQUIRE_SUFFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.REQUIRE_SUFFIX" title="Link to this definition"></a></dt>
+<dd><p>Only allow file sources with an <code class="docutils literal notranslate"><span class="pre">.elcl</span></code> suffix.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.AccessFeature.DEFAULTS">
+<span class="sig-name descname"><span class="pre">DEFAULTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">19</span></em><a class="headerlink" href="#erbsland.conf.file_access_check.AccessFeature.DEFAULTS" title="Link to this definition"></a></dt>
+<dd><p>Default set of enabled features.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.FileAccessCheck">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FileAccessCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.file_access_check.AccessFeature" title="erbsland.conf.file_access_check.AccessFeature"><span class="pre">AccessFeature</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DEFAULTS</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.file_access_check.FileAccessCheck" title="Link to this definition"></a></dt>
+<dd><p>Access check implementation for file-based sources.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.file_access_check.FileAccessCheck.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.access_check.AccessSources" title="erbsland.conf.access_check.AccessSources"><span class="pre">AccessSources</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult" title="erbsland.conf.access_check.AccessCheckResult"><span class="pre">AccessCheckResult</span></a></span></span><a class="headerlink" href="#erbsland.conf.file_access_check.FileAccessCheck.check" title="Link to this definition"></a></dt>
+<dd><p>Validate access to a file source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>access_sources</strong> – Information about the source that is accessed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult.GRANTED" title="erbsland.conf.access_check.AccessCheckResult.GRANTED"><code class="xref py py-data docutils literal notranslate"><span class="pre">GRANTED</span></code></a> if access is allowed,
+otherwise <a class="reference internal" href="#erbsland.conf.access_check.AccessCheckResult.DENIED" title="erbsland.conf.access_check.AccessCheckResult.DENIED"><code class="xref py py-data docutils literal notranslate"><span class="pre">DENIED</span></code></a>.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfAccessError" title="erbsland.conf.error.ConfAccessError"><strong>ConfAccessError</strong></a> – If access is denied due to a restriction.</p></li>
+<li><p><a class="reference internal" href="error.html#erbsland.conf.error.Error" title="erbsland.conf.error.Error"><strong>Error</strong></a> – If resolving a path fails.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="location.html" class="btn btn-neutral float-left" title="Location" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="source_resolver.html" class="btn btn-neutral float-right" title="Source Resolver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

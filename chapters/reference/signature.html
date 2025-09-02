@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signing and Validating Signatures &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contributing Guidelines" href="../contribute/index.html" />
+    <link rel="prev" title="Source Resolver" href="source_resolver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parser.html">Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="value.html">Document and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name.html">Name and Name-Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error.html">Error Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="location.html">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_check.html">Access Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_resolver.html">Source Resolver</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Signing and Validating Signatures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-erbsland.conf.signature">Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.signature.SignatureValidatorResult"><code class="docutils literal notranslate"><span class="pre">SignatureValidatorResult</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.signature.SignatureValidatorData"><code class="docutils literal notranslate"><span class="pre">SignatureValidatorData</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.signature.SignatureSigningData"><code class="docutils literal notranslate"><span class="pre">SignatureSigningData</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.signature.SignatureHandler"><code class="docutils literal notranslate"><span class="pre">SignatureHandler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#erbsland.conf.signer.Signer"><code class="docutils literal notranslate"><span class="pre">Signer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Signing and Validating Signatures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapters/reference/signature.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signing-and-validating-signatures">
+<h1>Signing and Validating Signatures<a class="headerlink" href="#signing-and-validating-signatures" title="Link to this heading"></a></h1>
+<section id="module-erbsland.conf.signature">
+<span id="interface"></span><h2>Interface<a class="headerlink" href="#module-erbsland.conf.signature" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SignatureValidatorResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorResult" title="Link to this definition"></a></dt>
+<dd><p>The result of a signature validation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorResult.ACCEPT">
+<span class="sig-name descname"><span class="pre">ACCEPT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Accept'</span></em><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorResult.ACCEPT" title="Link to this definition"></a></dt>
+<dd><p>The signature is valid.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorResult.REJECT">
+<span class="sig-name descname"><span class="pre">REJECT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Reject'</span></em><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorResult.REJECT" title="Link to this definition"></a></dt>
+<dd><p>The signature is invalid.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorData">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SignatureValidatorData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">signature_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_digest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorData" title="Link to this definition"></a></dt>
+<dd><p>Data for a signature validation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorData.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a></em><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorData.source" title="Link to this definition"></a></dt>
+<dd><p>Identifier of the source that contains the signature.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorData.signature_text">
+<span class="sig-name descname"><span class="pre">signature_text</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorData.signature_text" title="Link to this definition"></a></dt>
+<dd><p>The raw text from the signature meta-value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureValidatorData.document_digest">
+<span class="sig-name descname"><span class="pre">document_digest</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#erbsland.conf.signature.SignatureValidatorData.document_digest" title="Link to this definition"></a></dt>
+<dd><p>The digest of the document in the format “&lt;algorithm&gt; &lt;digest hex&gt;”.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureSigningData">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SignatureSigningData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">signing_person</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_digest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.signature.SignatureSigningData" title="Link to this definition"></a></dt>
+<dd><p>Data for signing a document.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureSigningData.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="source.html#erbsland.conf.SourceIdentifier" title="erbsland.conf.source.SourceIdentifier"><span class="pre">SourceIdentifier</span></a></em><a class="headerlink" href="#erbsland.conf.signature.SignatureSigningData.source" title="Link to this definition"></a></dt>
+<dd><p>Identifier of the source for the signature.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureSigningData.signing_person">
+<span class="sig-name descname"><span class="pre">signing_person</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#erbsland.conf.signature.SignatureSigningData.signing_person" title="Link to this definition"></a></dt>
+<dd><p>The text that identifies the signing person (e.g. name/email).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureSigningData.document_digest">
+<span class="sig-name descname"><span class="pre">document_digest</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#erbsland.conf.signature.SignatureSigningData.document_digest" title="Link to this definition"></a></dt>
+<dd><p>The digest of the document in the format “&lt;algorithm&gt; &lt;digest hex&gt;”.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureHandler">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SignatureHandler</span></span><a class="headerlink" href="#erbsland.conf.signature.SignatureHandler" title="Link to this definition"></a></dt>
+<dd><p>Interface for validating and creating signatures.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureHandler.validate">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.signature.SignatureValidatorData" title="erbsland.conf.signature.SignatureValidatorData"><span class="pre">SignatureValidatorData</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#erbsland.conf.signature.SignatureValidatorResult" title="erbsland.conf.signature.SignatureValidatorResult"><span class="pre">SignatureValidatorResult</span></a></span></span><a class="headerlink" href="#erbsland.conf.signature.SignatureHandler.validate" title="Link to this definition"></a></dt>
+<dd><p>Validate the signature.</p>
+<p>If a signature handler is enabled for a parser, this method is called for every document -
+regardless if it contains a signature or not.</p>
+<p>Instead of returning <code class="docutils literal notranslate"><span class="pre">REJECT</span></code>, the handler can raise a
+<a class="reference internal" href="error.html#erbsland.conf.error.ConfSignatureError" title="erbsland.conf.error.ConfSignatureError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfSignatureError</span></code></a> exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The result of the validation.</p>
+</dd>
+<dt class="field-even">Throws ConfSignatureError<span class="colon">:</span></dt>
+<dd class="field-even"><p>Optionally, if the signature is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.signature.SignatureHandler.sign">
+<span class="sig-name descname"><span class="pre">sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.signature.SignatureSigningData" title="erbsland.conf.signature.SignatureSigningData"><span class="pre">SignatureSigningData</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#erbsland.conf.signature.SignatureHandler.sign" title="Link to this definition"></a></dt>
+<dd><p>Create a signature for the document.</p>
+<p>This is called from the signing tool to create a signature for a document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The final text of the signature meta-value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-erbsland.conf.signer">
+<dt class="sig sig-object py" id="erbsland.conf.signer.Signer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Signer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#erbsland.conf.signature.SignatureHandler" title="erbsland.conf.signature.SignatureHandler"><span class="pre">SignatureHandler</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#erbsland.conf.signer.Signer" title="Link to this definition"></a></dt>
+<dd><p>A tool for signing configuration documents.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="erbsland.conf.signer.Signer.sign_document">
+<span class="sig-name descname"><span class="pre">sign_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">signing_person</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#erbsland.conf.signer.Signer.sign_document" title="Link to this definition"></a></dt>
+<dd><p>Sign a configuration document using <em>handler</em> and write the signed version to <em>dst</em>.</p>
+<p>The signing process calculates a digest of the document, asks <em>handler</em> to create a signature and finally
+writes the signed document. The source document is read a second time, and the digest is verified again before
+the real signature is written, protecting against concurrent modifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – The source file to sign.</p></li>
+<li><p><strong>dst</strong> – The destination file for the signed document.</p></li>
+<li><p><strong>signing_person</strong> – Identifier for the person performing the signing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfIoError" title="erbsland.conf.error.ConfIoError"><strong>ConfIoError</strong></a> – If the source or destination cannot be accessed.</p></li>
+<li><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfLimitExceeded" title="erbsland.conf.error.ConfLimitExceeded"><strong>ConfLimitExceeded</strong></a> – If the document or the signature text exceeds size limits.</p></li>
+<li><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfEncodingError" title="erbsland.conf.error.ConfEncodingError"><strong>ConfEncodingError</strong></a> – If the document is not valid UTF-8.</p></li>
+<li><p><a class="reference internal" href="error.html#erbsland.conf.error.ConfSignatureError" title="erbsland.conf.error.ConfSignatureError"><strong>ConfSignatureError</strong></a> – If the source file changes during signing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="source_resolver.html" class="btn btn-neutral float-left" title="Source Resolver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contribute/index.html" class="btn btn-neutral float-right" title="Contributing Guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

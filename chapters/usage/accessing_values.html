@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessing the Values in the Parsed Document &mdash; Erbsland Configuration Language Parser for Python 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=cba98b8c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/ansi.css?v=d923e889" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Working with Value Types" href="working_with_types.html" />
+    <link rel="prev" title="Parsing a Document" href="parsing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+ 
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Erbsland Configuration Language Parser for Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parsing.html">Parsing a Document</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Accessing the Values in the Parsed Document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-values-via-name-path">Accessing Values via Name-Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-values-via-index">Accessing Values via Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterating-over-value-and-section-lists">Iterating over Value and Section Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_types.html">Working with Value Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_handling.html">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/index.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-of-conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/code-style.html">ErbslandDEV Python Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute/write-a-unittest.html">How to Write a New Unit Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goals.html">Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Erbsland Configuration Language Parser for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Usage</a></li>
+      <li class="breadcrumb-item active">Accessing the Values in the Parsed Document</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapters/usage/accessing_values.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="accessing-the-values-in-the-parsed-document">
+<h1>Accessing the Values in the Parsed Document<a class="headerlink" href="#accessing-the-values-in-the-parsed-document" title="Link to this heading"></a></h1>
+<p>Once parsed, a configuration file becomes a <a class="reference internal" href="../reference/value.html#erbsland.conf.Document" title="erbsland.conf.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code></a> instance,
+which itself is derived from <a class="reference internal" href="../reference/value.html#erbsland.conf.Value" title="erbsland.conf.Value"><code class="xref py py-class docutils literal notranslate"><span class="pre">Value</span></code></a>.</p>
+<p>You can think of it as a <strong>tree of values and sections</strong>, and you can access these values in several different ways depending on your needs.</p>
+<section id="accessing-values-via-name-path">
+<h2>Accessing Values via Name-Path<a class="headerlink" href="#accessing-values-via-name-path" title="Link to this heading"></a></h2>
+<p>If you know the fixed names of the values in your configuration, you can access them directly using a <strong>string-based name-path</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">erbsland.conf</span> <span class="k">as</span> <span class="nn">elcl</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;configuration.elcl&quot;</span><span class="p">)</span>
+
+<span class="hll">    <span class="n">server_port</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;server.port&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">as_int</span><span class="p">()</span>
+</span><span class="hll">    <span class="n">server_host</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;server.host&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">as_text</span><span class="p">()</span>
+</span>
+    <span class="c1"># ...</span>
+<span class="k">except</span> <span class="n">elcl</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load configuration: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The path is always resolved <strong>relative to the instance</strong> you access it from.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you use a string name-path, it must be parsed and validated on <strong>every lookup</strong>.
+If you repeatedly access the same values, it is more efficient to pre-compile the name-paths once:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SERVER_PORT</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">NamePath</span><span class="o">.</span><span class="n">from_text</span><span class="p">(</span><span class="s2">&quot;server.port&quot;</span><span class="p">)</span>
+<span class="n">SERVER_HOST</span> <span class="o">=</span> <span class="n">elcl</span><span class="o">.</span><span class="n">NamePath</span><span class="o">.</span><span class="n">from_text</span><span class="p">(</span><span class="s2">&quot;server.host&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This way, any syntax errors are raised early (at definition time), and lookups are faster.</p>
+</div>
+</section>
+<section id="accessing-values-via-index">
+<h2>Accessing Values via Index<a class="headerlink" href="#accessing-values-via-index" title="Link to this heading"></a></h2>
+<p>Every <a class="reference internal" href="../reference/value.html#erbsland.conf.Value" title="erbsland.conf.Value"><code class="xref py py-class docutils literal notranslate"><span class="pre">Value</span></code></a> also behaves like a <strong>Python list</strong>,
+so you can access elements using an index:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">first_server</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;server&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">last_server</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;server&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The difference to regular Python lists is that errors are not raised as <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#IndexError" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndexError</span></code></a>,
+but as <a class="reference internal" href="../reference/error.html#erbsland.conf.error.ConfValueNotFound" title="erbsland.conf.error.ConfValueNotFound"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfValueNotFound</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For convenience, you can also use the <a class="reference internal" href="../reference/value.html#erbsland.conf.Value.first" title="erbsland.conf.Value.first"><code class="xref py py-data docutils literal notranslate"><span class="pre">first</span></code></a>
+and <a class="reference internal" href="../reference/value.html#erbsland.conf.Value.last" title="erbsland.conf.Value.last"><code class="xref py py-data docutils literal notranslate"><span class="pre">last</span></code></a> properties.</p>
+</div>
+</section>
+<section id="iterating-over-value-and-section-lists">
+<h2>Iterating over Value and Section Lists<a class="headerlink" href="#iterating-over-value-and-section-lists" title="Link to this heading"></a></h2>
+<p>Every value is iterable. This makes it easy to loop through lists of sections or values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">server_value</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;server&quot;</span><span class="p">]:</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">server_value</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">as_int</span><span class="p">()</span>
+    <span class="n">host</span> <span class="o">=</span> <span class="n">server_value</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">as_text</span><span class="p">()</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>This is especially useful when your configuration defines multiple sections of the same kind
+(for example, multiple servers, clients, or plugins).</p>
+<p><span class="sd-d-grid"><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-success sd-fs-5 sd-font-weight-bolder sd-my-4 reference internal" href="working_with_types.html"><span class="doc">Working with Value Types →</span></a></span></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="parsing.html" class="btn btn-neutral float-left" title="Parsing a Document" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="working_with_types.html" class="btn btn-neutral float-right" title="Working with Value Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tobias Erbsland - Erbsland DEV.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
