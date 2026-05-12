@@ -452,9 +452,16 @@ class ValueImpl(Value):
             return default_for(value_type)
 
     def get_list(
-        self, key: KeyType, expected_type: Type[T], default: list[T] | None | MissingType = MISSING
+        self, key: KeyType, expected_type: Type[T], *, default: list[T] | None | MissingType = MISSING
     ) -> list[T] | None:
-        return self[key].as_list(expected_type, default=default)
+        try:
+            value = cast(ValueImpl, self.__getitem__(key))
+            assert isinstance(value, ValueImpl)
+        except ConfValueNotFound:
+            if default is not MISSING:
+                return cast(list[T], default)
+            raise
+        return value.as_list(expected_type, default=default)
 
     def __getstate__(self) -> dict[str, Any]:
         return {

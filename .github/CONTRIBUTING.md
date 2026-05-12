@@ -1,6 +1,6 @@
 # Erbsland Configuration Parser for Python — Contributing Guidelines
 
-Thank you for considering a contribution to the Erbsland Configuration Parser for Python! We're grateful for your interest and appreciate your time and effort.
+Thank you for considering a contribution to this project! We're grateful for your interest and appreciate your time and effort.
 
 ## Code of Conduct
 

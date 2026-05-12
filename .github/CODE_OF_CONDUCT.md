@@ -2,7 +2,7 @@
 
 ## Our Commitment
 
-We’re committed to fostering an open, respectful, and inclusive environment for everyone involved in the Erbsland Configuration Parser for Python project. As contributors and maintainers, we want participation in our community to be a positive and harassment-free experience for people of all backgrounds, identities, and experience levels.
+We’re committed to fostering an open, respectful, and inclusive environment for everyone involved in this project. As contributors and maintainers, we want participation in our community to be a positive and harassment-free experience for people of all backgrounds, identities, and experience levels.
 
 This includes, but is not limited to, individuals of any age, body size, disability, ethnicity, sex characteristics, gender identity and expression, education level, socio-economic status, nationality, personal appearance, race, religion, or sexual orientation.
 

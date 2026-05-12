@@ -192,6 +192,9 @@ class TestValueImpl:
         list_parent.add_child(ValueImpl(ValueType.INTEGER, Name.create_index(1), 2))
         root.add_child(list_parent)
         assert root.get_list("list", int) == [1, 2]
+        assert root.get_list("missing", int, default=[]) == []
+        with pytest.raises(ConfValueNotFound):
+            root.get_list("missing", int)
         assert root.get_list("list", float, default=[]) == []
         with pytest.raises(ConfTypeMismatch):
             root.get_list("list", float)

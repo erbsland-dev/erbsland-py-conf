@@ -35,6 +35,9 @@ version-file = "src/erbsland/conf/_version.py"
 allow-ambiguous-features = true
 sources = ["src"]
 
+[tool.black]
+line-length = 120
+
 [tool.pytest.ini_options]
 minversion = "8.0"
 addopts = "-ra -q --ignore=tests/erbsland-lang-config-tests"

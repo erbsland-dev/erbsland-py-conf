@@ -265,8 +265,10 @@ class TestValueGet:
         )
         with pytest.raises(ConfValueNotFound):
             typed_list = value.get_list(key, requested_type)
-        typed_list = value.as_list(requested_type, default=[42])
+        typed_list = value.get_list(key, requested_type, default=[42])
         assert typed_list == [42]
+        typed_list = value.get_list(key, requested_type, default=[])
+        assert typed_list == []
         # Test value is no list and has the wrong type.
         value, key = self._key_from_value_name(
             doc_single_values, "main_with_wrong_type", value_lookup, value_name, value_index
@@ -275,6 +277,8 @@ class TestValueGet:
             typed_list = value.as_list(requested_type)
         typed_list = value.as_list(requested_type, default=[42])
         assert typed_list == [42]
+        typed_list = value.as_list(requested_type, default=[])
+        assert typed_list == []
         # Test value is list, but contains wrong type
         value, key = self._key_from_value_name(
             doc_single_values, "value_lists_with_wrong_type", value_lookup, value_name, value_index
@@ -283,3 +287,10 @@ class TestValueGet:
             typed_list = value.as_list(requested_type)
         typed_list = value.as_list(requested_type, default=[42])
         assert typed_list == [42]
+        typed_list = value.as_list(requested_type, default=[])
+        assert typed_list == []
+
+    def test_get_missing_list_with_default(self, doc_single_values):
+        """Regression test for handling missing list values with an empty list as default."""
+        empty_str_list = doc_single_values.get_list("this_list_does_not_exist", str, default=[])
+        assert empty_str_list == []

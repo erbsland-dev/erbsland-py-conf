@@ -97,6 +97,7 @@ Contents at a Glance
     chapters/contribute/write-a-unittest
     chapters/requirements
     chapters/goals
+    chapters/changelog
     chapters/license
 
 Indices and Tables
