@@ -10,6 +10,11 @@
 Changelog
 *********
 
+Version 1.0.10
+==============
+
+*   Update of the pinned GutHub workflows. No functional changes.
+
 Version 1.0.9
 =============
 
