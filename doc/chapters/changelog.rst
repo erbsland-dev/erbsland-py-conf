@@ -10,6 +10,21 @@
 Changelog
 *********
 
+Version 1.0.9
+=============
+
+Bug Fixes
+---------
+
+*   Fixed an issue where includes always counted as nested includes, what triggered the include limit when
+    glob patterns were used.
+
+Maintenance
+-----------
+
+*   Updated the ``requirements-...`` with the latest versions for all development and documentation dependencies.
+    This has no effect on this library, as the library itself has no external dependencies.
+
 Version 1.0.8
 =============
 

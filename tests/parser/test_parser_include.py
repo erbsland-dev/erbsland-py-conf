@@ -3,6 +3,7 @@
 import pytest
 
 from erbsland.conf.error import ConfSyntaxError
+from erbsland.conf.parser import load
 from parser.parser_test_helper import ParserTestHelper
 
 
@@ -41,6 +42,23 @@ class TestParserInclude(ParserTestHelper):
             "block[3].value_03": "Integer(123)",
         }
         self.validate_doc(expected_result)
+
+    def test_wildcard_include_siblings_do_not_increase_nesting(self, tmp_path):
+        include_dir = tmp_path / "parts"
+        include_dir.mkdir()
+        for index in range(10):
+            (include_dir / f"part_{index:02}.elcl").write_text(
+                f"[part_{index:02}]\nvalue: {index}\n",
+                encoding="utf-8",
+            )
+        main = tmp_path / "main.elcl"
+        main.write_text('@include: "parts/*.elcl"\n', encoding="utf-8")
+
+        document = load(main)
+
+        assert len(document) == 10
+        for index in range(10):
+            assert document[f"part_{index:02}.value"].native == index
 
     def test_include_not_found(self):
         self.parse_file("include_not_found/main.elcl")

@@ -243,10 +243,15 @@ class ParserImpl:
                     f"The '@include' meta-command would include too many sources ({len(sources)} > {MAX_INCLUDE_SOURCES})",
                     source=assignment.location,
                 )
-            root_source_id = self._root_context().source_identifier
             parent_source_id = self._current_context().source_identifier
+            include_level = self._current_context().include_level + 1
             for source in reversed(sources):
-                self._add_included_source(source, parent=parent_source_id, location=assignment.location)
+                self._add_included_source(
+                    source,
+                    parent=parent_source_id,
+                    location=assignment.location,
+                    include_level=include_level,
+                )
 
         # Other meta-values are handled by the lexer/assignment stream.
 
@@ -256,11 +261,13 @@ class ParserImpl:
         *,
         parent: SourceIdentifier | None = None,
         location: Location | None = None,
+        include_level: int | None = None,
     ) -> None:
         """Add the current source to the stack."""
         assert source is not None
         assert parent is None or isinstance(parent, SourceIdentifier)
         assert location is None or isinstance(location, Location)
+        assert include_level is None or isinstance(include_level, int)
         if not isinstance(source, Source):
             raise ConfInternalError(
                 "The list returned by the source resolver contained non-Source objects",
@@ -286,10 +293,11 @@ class ParserImpl:
             raise ConfInternalError("Access check did not return an AccessCheckResult object")
         if result == AccessCheckResult.DENIED:
             raise ConfAccessError("Access to the included source was denied", source=location)
-        next_include_level = self._current_context().include_level + 1 if self._context_stack else 0
-        if next_include_level > MAX_DOCUMENT_NESTING:
+        if include_level is None:
+            include_level = self._current_context().include_level + 1 if self._context_stack else 0
+        if include_level > MAX_DOCUMENT_NESTING:
             raise ConfSyntaxError("Maximum document nesting level reached", source=location)
-        new_context = ParserContext(next_include_level, source, self._settings)
+        new_context = ParserContext(include_level, source, self._settings)
         self._context_stack.append(new_context)
 
     # --- signature validation ----------------------------------------------
