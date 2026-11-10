@@ -1,0 +1,60 @@
+/*
+ * Copyright (c) 2024-2025 Tobias Erbsland - Erbsland DEV. https://erbsland.dev
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.text-code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, "Courier New", Courier, monospace;
+    font-weight: 800;
+    color: #505090;
+    white-space: nowrap;
+}
+
+.wy-table-responsive table.wrap-lines td, .wy-table-responsive table td {
+    white-space: normal !important;
+}
+
+/* Styles for custom Admonition boxes. */
+
+.design-rationale.admonition {
+    background-color: rgb(243, 231, 250);
+}
+
+.design-rationale.admonition .admonition-title {
+    background-color: rgb(152, 106, 222);
+}
+
+.design-rationale.admonition .admonition-title::before {
+    content: "\f040";
+}
+
+.banner {
+    width: 100%;
+    background-color: #cd5a13;
+    color: white;
+    padding: 0.5em 3em;
+    margin: 0 0 0 10em;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 5px solid #e4d3aa;
+}
+
+details.sd-dropdown.code-dropdown {
+    border: none;
+}
+
+details.sd-dropdown.code-dropdown .sd-card-header {
+    border: 1px solid var(--sd-color-card-border);
+}
+
+details.sd-dropdown.code-dropdown .sd-summary-content {
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .banner {
+        margin: 0;
+    }
+}
+
