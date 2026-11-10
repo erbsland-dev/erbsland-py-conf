@@ -7,14 +7,16 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+permissions: {}
 jobs:
   test:
+    name: Python ${{ matrix.python-version }} tests
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: read # Check out the parser and compliance tests.
     strategy:
       matrix:
-        python-version: [ 3.12, 3.13 ]
+        python-version: [ '3.12', '3.13', '3.14' ]
     steps:
       # actions/checkout@v6.0.2
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -24,13 +26,13 @@ jobs:
         run: |
           git submodule update --init --recursive
       # actions/setup-python@v7.0.0
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v6.2.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-dev.txt
+          python -m pip install -r requirements-dev.txt
       - name: Run tests
         run: |
           pytest -n auto

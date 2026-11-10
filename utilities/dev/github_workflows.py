@@ -341,6 +341,7 @@ class GitHubWorkflowsApp(UtilityApp):
         result = subprocess.run(
             [
                 str(zizmor.resolved_path),
+                "--pedantic",
                 "--offline",
                 "--collect=workflows",
                 str(self.config.workflow_directory),

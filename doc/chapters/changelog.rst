@@ -14,6 +14,8 @@ Unreleased
 ==========
 
 *   Reject hour ``24`` in time and date-time literals on Python 3.14, which otherwise normalizes these values to midnight.
+*   Refresh the development and documentation dependencies for Python 3.14 and add it to the test matrix.
+*   Harden GitHub workflow permissions, isolate documentation deployment, and enable pedantic zizmor audits.
 
 Version 1.0.10
 ==============
