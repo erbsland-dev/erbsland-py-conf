@@ -7,7 +7,10 @@ from __future__ import annotations
 import datetime
 import re
 import weakref
-from typing import Any, Iterator, Type, cast, NoReturn
+from typing import Any, Iterator, Type, cast, NoReturn, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from erbsland.conf.vr.rule import Rule
 
 from erbsland.conf.datetime import Time, DateTime
 from erbsland.conf.error import ConfNameConflict, ConfValueNotFound, ConfTypeMismatch, Error
@@ -44,7 +47,17 @@ def _name_path_from_key(key: str | Name | NamePath) -> NamePath:
 class ValueImpl(Value):
     """Internal representation of a document node."""
 
-    __slots__ = ("_type", "_name", "_data", "_parent", "_children", "_children_by_name", "_location")
+    __slots__ = (
+        "_type",
+        "_name",
+        "_data",
+        "_parent",
+        "_children",
+        "_children_by_name",
+        "_location",
+        "_validation_rule",
+        "_is_default_value",
+    )
 
     def __init__(
         self, value_type: ValueType, name: Name | None, data: ValueStorageType = None, location: Location | None = None
@@ -76,6 +89,18 @@ class ValueImpl(Value):
         self._children: list[ValueImpl] = []
         self._children_by_name: dict[Name, ValueImpl] = {}
         self._location: Location | None = location
+        self._validation_rule: Rule | None = None
+        self._is_default_value = False
+
+    @property
+    def validation_rule(self) -> Rule | None:
+        """Return the rule selected by validation, or None when this node has no validation metadata."""
+        return self._validation_rule
+
+    @property
+    def is_default_value(self) -> bool:
+        """Return whether validation inserted this node as part of a default value."""
+        return self._is_default_value
 
     @classmethod
     def from_data(cls, name: Name, data: ValueStorageType, location: Location | None = None):
@@ -206,6 +231,8 @@ class ValueImpl(Value):
     # --- Display helpers ---
 
     def __str__(self) -> str:
+        if self.is_secret:
+            return f"{self._type.value}(name={self._name}, data=***)"
         if self._type.is_single_value():
             if self._type is ValueType.TEXT:
                 value_str = '"' + escape_text(self._data) + '"'

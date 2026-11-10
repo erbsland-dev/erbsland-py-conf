@@ -1,0 +1,2467 @@
+[
+  {
+    "id": "VrCharsTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nchars: \"(a-z)\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nchars: \"(a-z)\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nchars: \"(a-z)\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nchars: \"(a-z)\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nchars: \"(a-z)\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nchars: \"(a-z)\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nchars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nnot_chars: \"(a-z)\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nnot_chars: \"(a-z)\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nnot_chars: \"(a-z)\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nnot_chars: \"(a-z)\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nnot_chars: \"(a-z)\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nnot_chars: \"(a-z)\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrCharsTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nnot_chars: \"(a-z)\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\ncontains: \"abc\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\ncontains: \"abc\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\ncontains: \"abc\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\ncontains: \"abc\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\ncontains: \"abc\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\ncontains: \"abc\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\ncontains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nnot_contains: \"abc\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nnot_contains: \"abc\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nnot_contains: \"abc\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nnot_contains: \"abc\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nnot_contains: \"abc\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nnot_contains: \"abc\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrContainsTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nnot_contains: \"abc\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nends: \"_id\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nends: \"_id\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nends: \"_id\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nends: \"_id\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nends: \"_id\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nends: \"_id\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEndsTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nends: \"_id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nequals: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nequals: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nequals: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nequals: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nequals: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nequals: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nequals: 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nequals: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nequals: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nequals: true\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nequals: true\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nequals: true\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nequals: true\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nequals: true\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nequals: true\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nequals: true\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nequals: 2.0\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nequals: 2.0\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nequals: 2.0\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nequals: 2.0\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nequals: 2.0\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nequals: 2.0\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/2/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nequals: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nequals: \"text\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nequals: \"text\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nequals: \"text\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nequals: \"text\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nequals: \"text\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nequals: \"text\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/3/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nequals: \"text\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nequals: <01 02>\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nequals: <01 02>\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nequals: <01 02>\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nequals: <01 02>\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nequals: <01 02>\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nequals: <01 02>\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/4/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nequals: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nequals: 3, 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nequals: 3, 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nequals: 3, 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nequals: 3, 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nequals: 3, 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrEqualsTest/type-matrix/5/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nequals: 3, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nin: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nin: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nin: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nin: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nin: 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nin: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nin: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nin: 2.0\n",
+    "valid": true
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nin: 2.0\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nin: 2.0\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nin: 2.0\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nin: 2.0\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nin: 2.0\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nin: 2.0\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nin: \"value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nin: \"value\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nin: \"value\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nin: \"value\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nin: \"value\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nin: \"value\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/2/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nin: \"value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nin: <01 02>\n",
+    "valid": true
+  },
+  {
+    "id": "VrInTest/type-matrix/3/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nin: <01 02>\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nin: <01 02>\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nin: <01 02>\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nin: <01 02>\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nin: <01 02>\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrInTest/type-matrix/3/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nin: <01 02>\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmaximum: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmaximum: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmaximum: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmaximum: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmaximum: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmaximum: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmaximum: 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmaximum: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmaximum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmaximum: 2.5\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmaximum: 2.5\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmaximum: 2.5\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmaximum: 2.5\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmaximum: 2.5\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmaximum: 2.5\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmaximum: 2.5\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmaximum: 2026-02-20\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmaximum: 2026-02-20\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmaximum: 2026-02-20\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmaximum: 2026-02-20\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmaximum: 2026-02-20\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmaximum: 2026-02-20\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/2/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmaximum: 2026-02-20\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmaximum: 2026-02-20 12:00:00z\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmaximum: 2026-02-20 12:00:00z\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmaximum: 2026-02-20 12:00:00z\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmaximum: 2026-02-20 12:00:00z\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmaximum: 2026-02-20 12:00:00z\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/3/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmaximum: 2026-02-20 12:00:00z\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmaximum: 3, 4\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmaximum: 3, 4\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmaximum: 3, 4\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmaximum: 3, 4\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmaximum: 3, 4\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMaximumTest/type-matrix/4/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmaximum: 3, 4\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nminimum: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nminimum: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nminimum: 3\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nminimum: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nminimum: 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nminimum: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nminimum: 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nminimum: 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nminimum: 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nminimum: 0.25\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nminimum: 0.25\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nminimum: 0.25\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nminimum: 0.25\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nminimum: 0.25\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nminimum: 0.25\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nminimum: 0.25\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nminimum: 2026-01-10\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nminimum: 2026-01-10\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nminimum: 2026-01-10\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nminimum: 2026-01-10\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nminimum: 2026-01-10\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nminimum: 2026-01-10\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/2/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nminimum: 2026-01-10\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nminimum: 2026-01-10 12:30:00\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nminimum: 2026-01-10 12:30:00\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nminimum: 2026-01-10 12:30:00\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nminimum: 2026-01-10 12:30:00\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nminimum: 2026-01-10 12:30:00\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/3/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nminimum: 2026-01-10 12:30:00\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nminimum: 2, 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nminimum: 2, 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nminimum: 2, 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nminimum: 2, 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nminimum: 2, 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMinimumTest/type-matrix/4/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nminimum: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmultiple: 2\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmultiple: 2\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmultiple: 2\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmultiple: 2\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmultiple: 2\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmultiple: 2\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmultiple: 2\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmultiple: 2\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmultiple: 2\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmultiple: 0.1\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmultiple: 0.1\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmultiple: 0.1\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmultiple: 0.1\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmultiple: 0.1\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmultiple: 0.1\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/1/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmultiple: 0.1\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nmultiple: 2, 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nmultiple: 2, 3\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nmultiple: 2, 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nmultiple: 2, 3\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nmultiple: 2, 3\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrMultipleTest/type-matrix/2/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nmultiple: 2, 3\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Integer",
+    "rules": "[app.x]\ntype: \"Integer\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Boolean",
+    "rules": "[app.x]\ntype: \"Boolean\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Float",
+    "rules": "[app.x]\ntype: \"Float\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Text",
+    "rules": "[app.x]\ntype: \"Text\"\nstarts: \"id\"\n",
+    "valid": true
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Date",
+    "rules": "[app.x]\ntype: \"Date\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Time",
+    "rules": "[app.x]\ntype: \"Time\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/DateTime",
+    "rules": "[app.x]\ntype: \"DateTime\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Bytes",
+    "rules": "[app.x]\ntype: \"Bytes\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/TimeDelta",
+    "rules": "[app.x]\ntype: \"TimeDelta\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/RegEx",
+    "rules": "[app.x]\ntype: \"RegEx\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Value",
+    "rules": "[app.x]\ntype: \"Value\"\nstarts: \"id\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/ValueList",
+    "rules": "[app.x]\ntype: \"ValueList\"\nstarts: \"id\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/ValueMatrix",
+    "rules": "[app.x]\ntype: \"ValueMatrix\"\nstarts: \"id\"\n[app.x.vr_entry]\ntype: \"Value\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/Section",
+    "rules": "[app.x]\ntype: \"Section\"\nstarts: \"id\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/SectionList",
+    "rules": "[app.x]\ntype: \"SectionList\"\nstarts: \"id\"\n[app.x.vr_entry.y]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/SectionWithTexts",
+    "rules": "[app.x]\ntype: \"SectionWithTexts\"\nstarts: \"id\"\n[app.x.vr_any]\ntype: \"integer\"\n",
+    "valid": false
+  },
+  {
+    "id": "VrStartsTest/type-matrix/0/NotValidated",
+    "rules": "[app.x]\ntype: \"NotValidated\"\nstarts: \"id\"\n",
+    "valid": false
+  }
+]

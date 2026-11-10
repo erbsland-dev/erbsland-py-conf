@@ -7,7 +7,10 @@ from __future__ import annotations
 import datetime
 from abc import ABC, abstractmethod
 from re import Pattern
-from typing import Any, Iterator, TypeVar, Type
+from typing import Any, Iterator, TypeVar, Type, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from erbsland.conf.vr.rule import Rule
 
 from erbsland.conf.impl.sentinels import MISSING, MissingType
 from erbsland.conf.location import Location
@@ -124,6 +127,26 @@ class Value(ABC):
     Please note: Value lists are *not* stored as native lists.
 
     """
+
+    @property
+    def validation_rule(self) -> Rule | None:
+        """The matching validation rule, or None before validation."""
+        return None
+
+    @property
+    def is_validated(self) -> bool:
+        """Whether this node has passed its local validation rules."""
+        return self.validation_rule is not None
+
+    @property
+    def is_default_value(self) -> bool:
+        """Whether validation inserted this node as a default."""
+        return False
+
+    @property
+    def is_secret(self) -> bool:
+        """Whether the matching rule marks this value as secret."""
+        return self.validation_rule is not None and self.validation_rule.is_secret
 
     @property
     @abstractmethod

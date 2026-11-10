@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 project = "Erbsland Configuration Language Parser for Python"
 copyright = f"{date.today().year}, Tobias Erbsland - Erbsland DEV"
 author = "Tobias Erbsland - Erbsland DEV"
-release = "1.0"
+release = "1.1.0"
 
 # -- General configuration ---------------------------------------------------
 extensions = [

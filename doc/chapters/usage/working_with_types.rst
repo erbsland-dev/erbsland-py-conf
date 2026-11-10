@@ -187,11 +187,11 @@ are cleaner and less error-prone. Use manual checks only when your logic
 depends on multiple possible types in a flexible way.
 
 
-.. button-ref:: troubleshooting
+.. button-ref:: validation
     :ref-type: doc
     :color: success
     :class: sd-fs-5 sd-font-weight-bolder sd-my-4
     :expand:
 
-    Troubleshooting →
+    Validation Rules →
 

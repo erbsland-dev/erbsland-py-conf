@@ -63,6 +63,7 @@ You can visualize the configuration above as the following tree:
     parsing
     accessing_values
     working_with_types
+    validation
     troubleshooting
     error_handling
 
