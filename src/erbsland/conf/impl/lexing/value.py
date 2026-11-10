@@ -18,7 +18,6 @@ from erbsland.conf.impl.lexing.types import TokenGenerator
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Scanning rules for values that fit on a single line.
 SINGLE_LINE_VALUE_RULES: list[ScanRule] = [
     ScanRule(float_value.RE_FLOAT_LITERAL, float_value.scan_for_float_literal),

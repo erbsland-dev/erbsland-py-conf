@@ -12,7 +12,6 @@ from erbsland.conf.datetime import DateTime, Time
 from erbsland.conf.time_delta import TimeDelta
 from erbsland.conf.value_type import ValueType
 
-
 ValueStorageType: TypeAlias = (
     str | int | float | bool | dt.date | DateTime | dt.datetime | Time | dt.time | TimeDelta | re.Pattern | bytes
 )

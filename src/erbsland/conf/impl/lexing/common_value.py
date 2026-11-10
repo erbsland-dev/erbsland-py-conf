@@ -10,7 +10,6 @@ from erbsland.conf.impl.lexing.cursor import Cursor
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # This is included in various REs to ensure that the end of the value is matched.
 REP_VALID_END_OF_VALUE = r"(?=\Z|[,\r\n\t #])"
 

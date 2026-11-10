@@ -11,19 +11,15 @@ from erbsland.conf.impl.lexing.cursor import Cursor
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Match an explicit ``inf`` or ``nan`` literal.
-RE_FLOAT_LITERAL = re.compile(
-    rf"""(?xi)
+RE_FLOAT_LITERAL = re.compile(rf"""(?xi)
     [+-]?
     (?: inf | nan )
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 # Match anything that looks like a floating-point number.
-RE_FLOAT = re.compile(
-    rf"""(?xi)
+RE_FLOAT = re.compile(rf"""(?xi)
     (?P<sign>           [-+]                       )?
     (?:
         (?P<whole>      [0-9']+                    )?
@@ -35,12 +31,10 @@ RE_FLOAT = re.compile(
         (?P<exponent2>  e[-+]?[0-9]+               )
     )
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 # Detect cases where a floating-point number appears to be unintentionally truncated.
-RE_INCOMPLETE_FLOAT = re.compile(
-    r"""(?xi)
+RE_INCOMPLETE_FLOAT = re.compile(r"""(?xi)
     [+-]?
     (?:
         [0-9']+e[-+]?
@@ -52,8 +46,7 @@ RE_INCOMPLETE_FLOAT = re.compile(
         [0-9']*\.[0-9']+e[-+]?
     )
     \Z
-    """
-)
+    """)
 
 
 def report_incomplete_float(cursor: Cursor, match: re.Match) -> Token | None:

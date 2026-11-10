@@ -20,7 +20,6 @@ from erbsland.conf.name_path import NamePath
 from erbsland.conf.value import Value
 from erbsland.conf.value_type import ValueType
 
-
 NamePathLike = str | NamePath | Name
 
 

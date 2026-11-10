@@ -12,8 +12,7 @@ from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 from erbsland.conf.name import Name
 
-NAME = re.compile(
-    r"""(?xi)
+NAME = re.compile(r"""(?xi)
     (?P<name>
         @?              # Accept @ prefix for meta-names
         [a-z]           # Names must start with a letter to prevent early matching of numbers.
@@ -26,8 +25,7 @@ NAME = re.compile(
         " (?: [^\\"\n\r] | \\. )*  # Capture a loosely valid string (checked later)
         (?: " | \Z )   # Also capture unterminated strings for error reporting.
     )
-    """
-)
+    """)
 
 
 def scan_for_name_path_separator(cursor: Cursor) -> Token | None:

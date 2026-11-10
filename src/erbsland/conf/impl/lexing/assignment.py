@@ -13,17 +13,14 @@ from erbsland.conf.impl.token_type import TokenType
 from erbsland.conf.name import Name, META_NAME_SIGNATURE
 
 # Match an assignment that starts with whitespace to provide a clearer error message.
-RE_NAME_ASSIGMENT_ERROR_INDENTATION = re.compile(
-    r"""(?xi)
+RE_NAME_ASSIGMENT_ERROR_INDENTATION = re.compile(r"""(?xi)
     ^ [\x20\t]+ # Error: Name must start at the beginning of the line
     (?: @? [a-z][a-z0-9_\x20]*? | " (?: [^\\"] | \\. )* " ) [\x20\t]* [=:]
-    """
-)
+    """)
 
 
 # Regular expression for matching a name followed by an assignment operator.
-RE_NAME_ASSIGNMENT = re.compile(
-    r"""(?xi)
+RE_NAME_ASSIGNMENT = re.compile(r"""(?xi)
     ^ # start of line
     (?P<name>
         @? [a-z][a-z0-9_\x20]*? # Anything that could be a regular name (checked later)
@@ -32,8 +29,7 @@ RE_NAME_ASSIGNMENT = re.compile(
     )
     (?P<spacing> [\x20\t]* ) # greedy whitespace
     (?P<separator> [=:] | \Z ) # assignment operator ($ to catch unexpected ends)
-    """
-)
+    """)
 
 
 def handle_name_assigment_error_indentation(cursor: Cursor, match) -> None:

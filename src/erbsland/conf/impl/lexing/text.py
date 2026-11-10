@@ -13,78 +13,60 @@ from erbsland.conf.impl.text_escape import unescape_text, UnescapeError, unescap
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Match anything that looks like single-line text, including an incomplete text without closing quotes.
-RE_SINGLE_LINE_TEXT = re.compile(
-    rf"""(?x)
+RE_SINGLE_LINE_TEXT = re.compile(rf"""(?x)
     (?P<open_quote>    "                       ) 
     (?P<text>          (?: [^"\\\n\r] | \\. )* ) 
     (?P<close_quote>   " | \Z                  )
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 # Match anything that looks like single-line code, including an incomplete code without closing quotes.
-RE_SINGLE_LINE_CODE = re.compile(
-    rf"""(?x)
+RE_SINGLE_LINE_CODE = re.compile(rf"""(?x)
     (?P<open_quote>    `                       ) 
     (?P<text>          [^`\n\r]*               ) 
     (?P<close_quote>   ` | \Z                  )
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 # Match anything that looks like single-line regex, including an incomplete regex without closing quotes.
-RE_SINGLE_LINE_REGEX = re.compile(
-    rf"""(?x)
+RE_SINGLE_LINE_REGEX = re.compile(rf"""(?x)
     (?P<open_quote>    /                       ) 
     (?P<text>          (?: [^/\\\n\r] | \\. )* ) 
     (?P<close_quote>   / | \Z                  )
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 # Match the opening quotes for multi-line text.
-RE_MULTI_LINE_TEXT_OPEN = re.compile(
-    r"""(?x)
+RE_MULTI_LINE_TEXT_OPEN = re.compile(r"""(?x)
     (?P<open_quote>    \"{3}                   )
-    """
-)
+    """)
 
 # Match the opening quotes for multi-line code with an optional language identifier.
-RE_MULTI_LINE_CODE_OPEN = re.compile(
-    r"""(?x)
+RE_MULTI_LINE_CODE_OPEN = re.compile(r"""(?x)
     (?P<open_quote>    `{3}                    )
     (?P<lang_id>       [a-z][-_a-z0-9]{0,15}   )?
-    """
-)
+    """)
 
 # Match the opening quotes for multi-line regex.
-RE_MULTI_LINE_REGEX_OPEN = re.compile(
-    r"""(?x)
+RE_MULTI_LINE_REGEX_OPEN = re.compile(r"""(?x)
     (?P<open_quote>    /{3}                    )
-    """
-)
+    """)
 
 # Match any type of closing quote for multi-line text, code or regex.
-RE_MULTI_LINE_CLOSE = re.compile(
-    r"""(?x)
+RE_MULTI_LINE_CLOSE = re.compile(r"""(?x)
     (?P<close_quote>    [`/\"]{3}              )
-    """
-)
+    """)
 
 # Match an empty line inside multi-line text that contains only spacing and no comments.
-RE_EMPTY_TEXT_LINE = re.compile(
-    r"""(?x)
+RE_EMPTY_TEXT_LINE = re.compile(r"""(?x)
     (?P<eol_whitespace>    [\x20\t]*    )
     (?P<eol_line_break>    \r? \n       )? # optional line break (may be the last token)
     \Z
-    """
-)
+    """)
 
 # For multi-line regex, split the text part from any trailing spacing and comment part.
-RE_TEXT_COMMENT_SPLIT = re.compile(
-    r"""(?x)
+RE_TEXT_COMMENT_SPLIT = re.compile(r"""(?x)
     \A
     (?P<text>
         (?: \\ . | [^\\#] )*
@@ -93,8 +75,7 @@ RE_TEXT_COMMENT_SPLIT = re.compile(
         \# .*
     )
     \Z
-    """
-)
+    """)
 
 
 def scan_for_text(cursor: Cursor, match: re.Match[str]) -> Token | None:

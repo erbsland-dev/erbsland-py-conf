@@ -7,7 +7,6 @@ from erbsland.conf.impl.value_storage_type import ValueStorageType, is_valid_sto
 from erbsland.conf.location import Position
 from erbsland.conf.name import Name
 
-
 # Tokens can store all types value to, but also names.
 TokenStorageType = ValueStorageType | Name
 

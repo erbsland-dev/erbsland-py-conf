@@ -17,7 +17,6 @@ from erbsland.conf.test_output import TestOutput
 from erbsland.conf.time_delta import TimeDelta
 from erbsland.conf.value_type import ValueType
 
-
 T = TypeVar("T")
 
 KeyType = str | int | Name | NamePath

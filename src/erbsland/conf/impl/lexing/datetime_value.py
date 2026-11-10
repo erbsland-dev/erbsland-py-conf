@@ -13,10 +13,8 @@ from erbsland.conf.impl.lexing.cursor import Cursor
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Match a date, time or datetime value.
-RE_DATETIME = re.compile(
-    r"""(?xi)
+RE_DATETIME = re.compile(r"""(?xi)
     (?=\d{4}-|t?\d{2}:)               # Make sure we are matching a date or time
     (?P<date>                         # Match an optional date, e.g. "2025-01-01"
         \d{4} - \d{2} - \d{2}
@@ -39,19 +37,15 @@ RE_DATETIME = re.compile(
             (?P<tz_minute> : \d{2} )?
         )?
     )?
-    """
-    + REP_VALID_END_OF_VALUE
-)
+    """ + REP_VALID_END_OF_VALUE)
 
 
 # Matching all incomplete date, time or datetime values that look like real cut-off values.
-RE_INCOMPLETE_DATETIME = re.compile(
-    r"""(?xi)
+RE_INCOMPLETE_DATETIME = re.compile(r"""(?xi)
     \d{4}- (?:\d\d? (?:-\d? (?:\d[\x20t]\d? (?:\d:\d? (?:\d:\d? (?:\d[+-] (?:\d (?:\d:\d?)?)?)?)?)?)?)?)?\Z
     |
     \d{2}: (?:\d (?:\d:\d? (?:\d[+-] (?:\d (?:\d:\d?)?)?)?)?)?\Z
-    """
-)
+    """)
 
 
 def report_incomplete_datetime(cursor: Cursor, match: re.Match) -> Token | None:

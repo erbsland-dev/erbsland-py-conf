@@ -8,7 +8,6 @@ Limits enforced by the configuration parser.
 Most of these limits come from the *Erbsland Configuration Language* specification.
 """
 
-
 MAX_DOCUMENT_SIZE: int = 100_000_000  # 100MB
 """Maximum allowed size of a configuration document in bytes."""
 

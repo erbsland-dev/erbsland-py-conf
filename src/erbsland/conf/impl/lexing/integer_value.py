@@ -12,10 +12,8 @@ from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 from erbsland.conf.time_delta import TIME_DELTA_UNIT_MAP, TimeDelta
 
-
 # Roughly matches any integer or time-delta value.
-RE_INTEGER = re.compile(
-    rf"""(?xi)
+RE_INTEGER = re.compile(rf"""(?xi)
     (?P<sign>     [-+]                             )?
     (?P<base>     0[xb]                            )?
     (?P<digits>   (?(base)[0-9a-fA-F']+|[0-9']+)   )
@@ -41,8 +39,7 @@ RE_INTEGER = re.compile(
         )
     )?
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 # An integer base at the end of a line is unexpected.
 RE_INCOMPLETE_INTEGER = re.compile(r"(?xi)[-+]?0[xb]\Z")

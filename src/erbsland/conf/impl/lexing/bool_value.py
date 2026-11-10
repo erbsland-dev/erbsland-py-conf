@@ -11,17 +11,13 @@ from erbsland.conf.impl.lexing.cursor import Cursor
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Match any supported boolean literal followed by a valid terminator.
-RE_BOOL_LITERAL = re.compile(
-    r"""(?xi)
+RE_BOOL_LITERAL = re.compile(r"""(?xi)
     true | false |
     on | off |
     yes | no |
     enabled | disabled
-    """
-    + REP_VALID_END_OF_VALUE
-)
+    """ + REP_VALID_END_OF_VALUE)
 
 
 def scan_for_bool(cursor: Cursor, match: re.Match) -> Token | None:

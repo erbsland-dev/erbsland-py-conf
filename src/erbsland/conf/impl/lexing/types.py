@@ -6,7 +6,6 @@ from typing import Generator
 
 from erbsland.conf.impl.token import Token
 
-
 TokenGenerator = Generator[Token, None, None]
 """Generator yielding tokens produced by the lexing methods."""
 

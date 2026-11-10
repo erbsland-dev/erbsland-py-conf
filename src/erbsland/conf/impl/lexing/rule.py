@@ -12,7 +12,6 @@ from erbsland.conf.impl.lexing.cursor import Cursor
 from erbsland.conf.impl.lexing.types import TokenGenerator
 from erbsland.conf.impl.token import Token
 
-
 # A handler function that takes a cursor and a match and returns a token generator.
 HandlerGenerator = Callable[[Cursor, re.Match], TokenGenerator]
 

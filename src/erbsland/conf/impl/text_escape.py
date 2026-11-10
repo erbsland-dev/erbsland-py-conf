@@ -10,7 +10,6 @@ These follow the stricter escaping rules described in
 ``language_reference/reference/name-path/text-names-for-parsers.md`` and use ``\u{...}`` sequences exclusively.
 """
 
-
 from __future__ import annotations
 
 import re
@@ -77,8 +76,7 @@ def escape_name_path_text(text: str) -> str:
     return "".join(result)
 
 
-RE_TEXT_ESCAPE = re.compile(
-    r"""(?xsi)
+RE_TEXT_ESCAPE = re.compile(r"""(?xsi)
     \\
     (?P<escaped_expr>
         u \{ (?P<uni2> [0-9a-f]* ) \}
@@ -87,8 +85,7 @@ RE_TEXT_ESCAPE = re.compile(
     |
         .
     )?
-    """
-)
+    """)
 
 
 class UnescapeError(Exception):

@@ -22,7 +22,6 @@ from erbsland.conf.impl.token_type import TokenType
 from erbsland.conf.location import Location, Position
 from erbsland.conf.source import Source
 
-
 # Match all illegal control characters.
 RE_ILLEGAL_CTRL = re.compile(r"[\x00-\x08\x0A-\x1F\x7F-\xA0]")
 

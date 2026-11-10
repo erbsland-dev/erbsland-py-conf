@@ -13,37 +13,30 @@ from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 from erbsland.conf.name import Name
 
-
 # Match a name path separator.
 RE_SECTION_NAME_SEPARATOR = re.compile(r"\.")
 
 # Match a section start marker.
-RE_SECTION_START = re.compile(
-    r"""(?x)
+RE_SECTION_START = re.compile(r"""(?x)
     ^ # start of line
     (?P<section_marker>
         -* # optional decoration
         \*? # list section marking
         \[ # section start
     )
-    """
-)
+    """)
 
 # Test for a common error to improve the error message.
-RE_SECTION_ERROR_INDENTATION = re.compile(
-    r"""(?x)
+RE_SECTION_ERROR_INDENTATION = re.compile(r"""(?x)
     ^ [\x20\t]+ # Error: Section must not be indented
     -* \*? \[
-    """
-)
+    """)
 
 # Match a section end marker.
-RE_SECTION_END = re.compile(
-    r"""(?x)
+RE_SECTION_END = re.compile(r"""(?x)
     (?P<in_section_spacing> [\x20\t]* ) # spacing
     (?P<section_marker> \] \*? -* ) # section end marking
-    """
-)
+    """)
 
 
 def handle_tokens_from_section(cursor: Cursor, match: re.Match) -> TokenGenerator:

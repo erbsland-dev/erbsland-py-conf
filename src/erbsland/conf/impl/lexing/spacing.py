@@ -11,7 +11,6 @@ from erbsland.conf.impl.lexing.types import TokenList, TokenGenerator
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Match any combination of spaces and tabs.
 RE_SPACING = re.compile(r"[\x20\t]+")
 
@@ -23,29 +22,23 @@ REP_END_OF_LINE = r"""
     """
 
 # Match the end of a line.
-RE_END_OF_LINE = re.compile(
-    rf"""(?x)
+RE_END_OF_LINE = re.compile(rf"""(?x)
     {REP_END_OF_LINE}
     \Z
-    """
-)
+    """)
 
 # Match an empty line.
-RE_EMPTY_LINE = re.compile(
-    rf"""(?x)
+RE_EMPTY_LINE = re.compile(rf"""(?x)
     \A # start of line
     {REP_END_OF_LINE}
     \Z
-    """
-)
+    """)
 
 # Match indentation at the beginning of a line.
-RE_INDENTATION = re.compile(
-    r"""(?x)
+RE_INDENTATION = re.compile(r"""(?x)
     \A
     (?P<indentation>    [\x20\t]+  ) # required indentation
-    """
-)
+    """)
 
 
 def scan_for_end_of_line(cursor: Cursor) -> TokenList | None:

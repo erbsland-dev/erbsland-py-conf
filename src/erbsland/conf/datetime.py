@@ -5,7 +5,6 @@
 import datetime as dt
 import re
 
-
 RE_TIME_FRACTIONS = re.compile(r"\.(\d+)")
 RE_TIME_ZERO_OFFSET = re.compile(r"[+-]00:00$")
 

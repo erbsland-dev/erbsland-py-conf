@@ -19,14 +19,12 @@ from erbsland.conf.impl.lexing.types import TokenGenerator
 from erbsland.conf.impl.token import Token
 from erbsland.conf.impl.token_type import TokenType
 
-
 # Single-line bytes value
 # Format: < [format:] [spacing] (hex_byte [spacing])* >
 # - format (optional): [a-z][a-z0-9_-]{0,15}
 # - hex_byte: two hex digits (case-insensitive)
 # - spacing: spaces or tabs between bytes (not within)
-RE_SINGLE_LINE_BYTES = re.compile(
-    rf"""(?xi)
+RE_SINGLE_LINE_BYTES = re.compile(rf"""(?xi)
     <
     (?! << )    # Do not match multi-line bytes
     (?:         # optional format followed by colon
@@ -36,25 +34,20 @@ RE_SINGLE_LINE_BYTES = re.compile(
     (?P<body>              [^>\r\n]*           )  # body: hex digits with optional spacing (validated later)
     (?P<close_quote>       > | \Z              )
     {REP_VALID_END_OF_VALUE}
-    """
-)
+    """)
 
 
 RE_BYTES_INVALID_BODY = re.compile(r"(?i)[^a-f0-9\t\x20]")
 
 
-RE_MULTI_LINE_BYTES_OPEN = re.compile(
-    r"""(?xi)
+RE_MULTI_LINE_BYTES_OPEN = re.compile(r"""(?xi)
     (?P<open_quote>    <<<                     )
     (?P<format>        [a-z][a-z0-9_-]*        )?    
-    """
-)
+    """)
 
-RE_MULTI_LINE_CLOSE = re.compile(
-    r"""(?x)
+RE_MULTI_LINE_CLOSE = re.compile(r"""(?x)
     (?P<close_quote>    >>>                     )
-    """
-)
+    """)
 
 
 def scan_for_single_line_bytes(cursor: Cursor, match: re.Match[str]) -> Token | None:
