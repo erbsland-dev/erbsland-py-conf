@@ -10,6 +10,11 @@
 Changelog
 *********
 
+Unreleased
+==========
+
+*   Reject hour ``24`` in time and date-time literals on Python 3.14, which otherwise normalizes these values to midnight.
+
 Version 1.0.10
 ==============
 

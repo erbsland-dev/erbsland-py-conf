@@ -70,6 +70,9 @@ def scan_for_datetime(cursor: Cursor, match: re.Match[str]) -> Token | None:
     date_text = match.group("date") or ""
     second_fraction = match.group("second_fraction") or ""
     time_text = match.group("time") or ""
+    # Python 3.14 accepts hour 24 as midnight, but ELCL only permits hours 00 through 23.
+    if time_text and int(time_text[:2]) > 23:
+        cursor.syntax_error("The time hour must be between 00 and 23")
     if len(time_text) == 5:  # Only hour:minute
         time_text += ":00"
         if second_fraction:

@@ -50,6 +50,11 @@ class TestLexerTime(LexerHelper):
         "content",
         [
             "24:00:00",  # invalid hour
+            "24:00",  # short midnight must not be normalized to hour 00
+            "T24:00:00Z",
+            "24:00:00.000000000+01:00",
+            "24:00-02:30",
+            "25:00:00",
             "12:60:00",  # invalid minute
             "12:00:60",  # invalid second
             "12:34.1",  # fraction given without seconds

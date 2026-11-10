@@ -43,6 +43,12 @@ class TestLexerDateTime(LexerHelper):
         "content",
         [
             "2025-01-01T24:00:00",  # invalid hour
+            "2025-01-01T24:00",  # short midnight must not roll over to the next day
+            "2025-01-31 24:00:00Z",
+            "2024-02-29T24:00:00.000000000+01:00",
+            "2025-12-31T24:00-02:30",
+            "9999-12-31T24:00:00",
+            "2025-01-01T25:00:00",
             "2025-01-01T12:60:00",  # invalid minute
             "2025-01-01T12:00:60",  # invalid second
             "2025-01-01T12:34.1",  # fraction given without seconds
